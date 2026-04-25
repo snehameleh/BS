@@ -162,14 +162,204 @@
       height: 1px;
       border: none;
     }
+
+    /* ==== Signal slideshow ==== */
+    .sig-slideshow { position: relative; }
+    .sig-stage {
+      position: relative;
+      background: #0d1117;
+      border: 1px solid #C9D9A0;
+      border-radius: 0.75rem 0.75rem 0 0;
+      box-shadow: 0 4px 24px rgba(107,123,63,0.10);
+      /* overflow visible so the arrows can stick out */
+    }
+    .sig-stage img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 72vh;
+      object-fit: contain;
+      border-radius: calc(0.75rem - 1px) calc(0.75rem - 1px) 0 0;
+      transition: opacity 0.25s ease;
+    }
+    .sig-stage img.is-swapping { opacity: 0.4; }
+    .sig-real-badge {
+      position: absolute;
+      top: 12px;
+      inset-inline-start: 12px;
+      background: rgba(15,23,13,0.88);
+      color: #DFE9C2;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 6px 10px 6px 24px;
+      border-radius: 6px;
+      border: 1px solid rgba(168,184,108,0.45);
+      z-index: 5;
+    }
+    .sig-real-badge::before {
+      content: '';
+      position: absolute;
+      top: 50%; inset-inline-start: 9px;
+      width: 7px; height: 7px;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background: #ef4444;
+      box-shadow: 0 0 8px rgba(239,68,68,0.8);
+      animation: sig-pulse 2s infinite;
+    }
+    @keyframes sig-pulse { 0%,100% { opacity: 1 } 50% { opacity: 0.35 } }
+
+    .sig-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: rgba(255,253,247,0.96);
+      border: 1px solid #C9D9A0;
+      color: #2A3220;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 6;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.18);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .sig-arrow:hover { background: #fff; transform: translateY(-50%) scale(1.07); }
+    .sig-arrow.prev { left: -22px; }
+    .sig-arrow.next { right: -22px; }
+    @media (max-width: 768px) {
+      .sig-arrow { width: 40px; height: 40px; }
+      .sig-arrow.prev { left: 8px; }
+      .sig-arrow.next { right: 8px; }
+    }
+
+    .sig-caption {
+      padding: 1.25rem 1.5rem;
+      background: #FFFDF7;
+      border: 1px solid #E8E0C8;
+      border-top: none;
+      border-radius: 0 0 0.75rem 0.75rem;
+    }
+    .sig-cap-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .sig-symbol {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #1F2617;
+      line-height: 1;
+    }
+    .sig-exchange {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 0.8rem;
+      color: #6B7B3F;
+      margin-left: 0.6rem;
+    }
+    .sig-counter {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      color: #6B7B3F;
+      font-weight: 600;
+      white-space: nowrap;
+      padding: 4px 10px;
+      background: #F4F1E9;
+      border-radius: 999px;
+      border: 1px solid #DFD9CB;
+    }
+    .sig-text { font-size: 0.95rem; color: #3E4826; line-height: 1.6; margin: 0; }
+
+    .sig-dots {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      margin-top: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .sig-dots button {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #DFD9CB;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: width 0.2s, background 0.2s, border-radius 0.2s;
+    }
+    .sig-dots button.active { background: #6B7B3F; width: 24px; border-radius: 4px; }
+
+    /* ==== GIF click-to-play ==== */
+    .gif-poster { position: relative; cursor: pointer; overflow: hidden; }
+    .gif-poster img { display: block; width: 100%; height: auto; }
+    .gif-play-btn {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 86px; height: 86px;
+      border-radius: 50%;
+      background: rgba(107,123,63,0.96);
+      color: #FDFAF1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid rgba(255,253,247,0.92);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      pointer-events: none;
+      transition: transform 0.25s, background 0.25s;
+    }
+    .gif-poster:hover .gif-play-btn { transform: translate(-50%, -50%) scale(1.08); background: rgba(85,99,48,0.98); }
+    .gif-play-btn svg { margin-left: 4px; }
+    .gif-hint {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: rgba(15,23,13,0.85);
+      color: #DFE9C2;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 5px;
+      pointer-events: none;
+      letter-spacing: 0.02em;
+    }
+    .gif-poster.is-loading .gif-play-btn { background: rgba(85,99,48,0.6); }
+
+    /* ==== GIF stop button (visible only while playing) ==== */
+    .gif-stop-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: rgba(15,23,13,0.88);
+      color: #FDFAF1;
+      border: 1.5px solid rgba(255,253,247,0.4);
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .gif-stop-btn:hover { background: rgba(15,23,13,0.98); transform: scale(1.07); }
+    .gif-poster.is-loaded .gif-stop-btn { display: flex; }
   </style>
 </head>
 <body class="antialiased">
 
   <!-- ====== NAVIGATION ====== -->
   <nav class="fixed top-0 left-0 right-0 z-50 nav-blur">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2.5">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between gap-3">
+      <a href="#" class="flex items-center gap-2.5 shrink-0">
         <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-olive-400 to-olive-600 flex items-center justify-center">
           <svg class="w-5 h-5 text-cream-50" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8M14 7h7v7" />
@@ -177,6 +367,7 @@
         </div>
         <span class="font-display font-bold text-xl tracking-tight text-olive-900">BlueSky <span class="text-gold-gradient">Pro</span></span>
       </a>
+      <img src="images/banner-beach.jpg" alt="" class="hidden md:block h-8 lg:h-9 w-40 lg:w-48 xl:w-56 object-fill rounded-md border border-olive-200/70 shadow-sm shrink-0" loading="eager" decoding="async" />
       <div class="hidden md:flex items-center gap-6 text-sm text-olive-700 font-medium">
         <a href="#system" class="hover:text-olive-900 transition">The System</a>
         <a href="#proof" class="hover:text-olive-900 transition">Results</a>
@@ -329,16 +520,16 @@
       </div>
     </div>
 
-    <!-- Real Chart Screenshot — Arista Networks (full-width proof below the hero) -->
+    <!-- Real Chart Screenshot — spectacular winner -->
     <div class="relative max-w-6xl mx-auto mt-16">
       <div class="flex items-center justify-center gap-2 mb-4">
         <span class="w-2 h-2 rounded-full bg-olive-500"></span>
-        <span class="text-xs font-bold tracking-widest text-olive-700 uppercase">Actual Signals · NYSE:ANET · Daily Chart</span>
+        <span class="text-xs font-bold tracking-widest text-olive-700 uppercase">Actual Signals · NASDAQ:ALM · Daily Chart</span>
       </div>
       <div class="card rounded-2xl p-2 md:p-3 overflow-hidden">
-        <img src="images/arista-signals.png" alt="BlueSky Pro signals on Arista Networks (ANET) daily chart — 17 trades with multiple TP2 wins and stop losses capped around -11%" class="w-full rounded-xl block" loading="eager" />
+        <img src="images/wins/alm.png" alt="BlueSky Pro signals on ALM daily chart — from $4 to $25 in 18 months with three guided TP closes" class="w-full rounded-xl block" loading="eager" />
       </div>
-      <p class="text-center text-olive-600 text-sm mt-4 italic max-w-3xl mx-auto">Real BlueSky Pro output on Arista Networks. 17 trades · TP2 winners +6% to +32% · stops capped around -11% · 10-slot portfolio, $10k start.</p>
+      <p class="text-center text-olive-600 text-sm mt-4 italic max-w-3xl mx-auto">Real BlueSky Pro output on ALM. From $4 to $25 in 18 months · three guided TP closes, the highest at +33% · stop trailed up the whole way · no photoshop, no mockup.</p>
     </div>
 
     <!-- Tagline finale — the emotional close of the hero -->
@@ -714,113 +905,165 @@
 
   <!-- ====== LIVE SIGNALS GALLERY ====== -->
   <section id="gallery" class="py-28 px-6 bg-cream-alt">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
         <p class="text-olive-600 text-sm font-semibold tracking-widest uppercase mb-4">Live Signals</p>
         <h2 class="font-display font-bold text-4xl md:text-6xl leading-tight mb-6 text-olive-900">
           See it <span class="text-olive-gradient italic">play out</span>.
         </h2>
-        <p class="text-olive-700 text-lg max-w-2xl mx-auto">Actual signals fired on actual stocks. The good — and the honest losses. Both matter.</p>
+        <p class="text-olive-700 text-lg max-w-2xl mx-auto">Actual signals fired on actual stocks. Winners, honest losses, and how it really looks on your chart.</p>
       </div>
 
-      <!-- Winners -->
+      <!-- Authenticity banner -->
+      <div class="card rounded-xl p-5 mb-14 max-w-3xl mx-auto flex items-center gap-4">
+        <div class="w-11 h-11 rounded-full bg-olive-100 border border-olive-300 flex items-center justify-center shrink-0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="text-olive-700"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+        </div>
+        <p class="text-olive-800 text-sm md:text-base leading-relaxed">
+          <strong class="text-olive-900">Real screenshots, straight from the system.</strong> No render, no mockup, no photoshop. Exactly what you'd see on your own chart — same labels, same colors, same rulebook.
+        </p>
+      </div>
+
+      <!-- Winners — slideshow -->
       <div class="mb-20">
-        <div class="flex items-center gap-3 mb-8">
+        <div class="flex items-center gap-3 mb-6">
           <div class="w-2 h-2 rounded-full bg-olive-500"></div>
           <h3 class="font-display font-bold text-2xl text-olive-900">Winners</h3>
           <div class="flex-1 h-px bg-olive-300/60"></div>
+          <span class="text-olive-500 text-xs font-medium tracking-wider">15 examples</span>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          <figure class="card rounded-xl overflow-hidden flex flex-col">
-            <img src="images/wins/anet.png" alt="BlueSky Pro signals on Arista Networks (ANET) — multiple TP exits and capped losses" class="w-full block" loading="lazy" />
-            <figcaption class="p-5">
-              <p class="font-display font-bold text-olive-900 mb-2">ANET <span class="text-olive-500 font-normal text-sm block sm:inline">Arista Networks · NYSE</span></p>
-              <p class="text-olive-700 text-sm leading-relaxed">The +30% runner. Earlier signals took smaller wins; losses stayed tight. Letting winners work.</p>
-            </figcaption>
-          </figure>
-
-          <figure class="card rounded-xl overflow-hidden flex flex-col">
-            <img src="images/wins/sndk.png" alt="BlueSky Pro signals on SanDisk (SNDK) — +55% runner captured" class="w-full block" loading="lazy" />
-            <figcaption class="p-5">
-              <p class="font-display font-bold text-olive-900 mb-2">SNDK <span class="text-olive-500 font-normal text-sm block sm:inline">SanDisk · NASDAQ</span></p>
-              <p class="text-olive-700 text-sm leading-relaxed">The +55% runner. When setup meets trend, the runner portion is what makes the year.</p>
-            </figcaption>
-          </figure>
-
-          <figure class="card rounded-xl overflow-hidden flex flex-col">
-            <img src="images/wins/crwd.png" alt="BlueSky Pro signals on CrowdStrike (CRWD) — +48% runner" class="w-full block" loading="lazy" />
-            <figcaption class="p-5">
-              <p class="font-display font-bold text-olive-900 mb-2">CRWD <span class="text-olive-500 font-normal text-sm block sm:inline">CrowdStrike · NASDAQ</span></p>
-              <p class="text-olive-700 text-sm leading-relaxed">The +48% runner. Smaller drawdowns along the way didn't derail the compounding.</p>
-            </figcaption>
-          </figure>
-
-          <figure class="card rounded-xl overflow-hidden flex flex-col">
-            <img src="images/wins/mu.png" alt="BlueSky Pro signals on Micron (MU) — +35% runner" class="w-full block" loading="lazy" />
-            <figcaption class="p-5">
-              <p class="font-display font-bold text-olive-900 mb-2">MU <span class="text-olive-500 font-normal text-sm block sm:inline">Micron Technology · NASDAQ</span></p>
-              <p class="text-olive-700 text-sm leading-relaxed">The +35% runner. System scaled out as planned, stayed in for the bulk of the move.</p>
-            </figcaption>
-          </figure>
-
-          <figure class="card rounded-xl overflow-hidden flex flex-col">
-            <img src="images/wins/asml.png" alt="BlueSky Pro signals on ASML — +27% leg captured" class="w-full block" loading="lazy" />
-            <figcaption class="p-5">
-              <p class="font-display font-bold text-olive-900 mb-2">ASML <span class="text-olive-500 font-normal text-sm block sm:inline">ASML Holding · NASDAQ</span></p>
-              <p class="text-olive-700 text-sm leading-relaxed">Runner captured the +27% leg. Partials scaled out clean at TP1. Trend-following at its best.</p>
-            </figcaption>
-          </figure>
-
-          <figure class="card rounded-xl overflow-hidden flex flex-col">
-            <img src="images/wins/ibkr.png" alt="BlueSky Pro signals on Interactive Brokers (IBKR) — clean trend-following" class="w-full block" loading="lazy" />
-            <figcaption class="p-5">
-              <p class="font-display font-bold text-olive-900 mb-2">IBKR <span class="text-olive-500 font-normal text-sm block sm:inline">Interactive Brokers · NASDAQ</span></p>
-              <p class="text-olive-700 text-sm leading-relaxed">Clean trend-following. Scaling TPs in the +15-30% range as the move extended.</p>
-            </figcaption>
-          </figure>
-
-          <figure class="card rounded-xl overflow-hidden flex flex-col">
-            <img src="images/wins/csco.png" alt="BlueSky Pro signals on Cisco (CSCO) — steady grind" class="w-full block" loading="lazy" />
-            <figcaption class="p-5">
-              <p class="font-display font-bold text-olive-900 mb-2">CSCO <span class="text-olive-500 font-normal text-sm block sm:inline">Cisco Systems · NASDAQ</span></p>
-              <p class="text-olive-700 text-sm leading-relaxed">A steady grind. Multiple TP2 exits in the +15-17% range. Not flashy — just rules.</p>
-            </figcaption>
-          </figure>
-
-          <figure class="card rounded-xl overflow-hidden flex flex-col">
-            <img src="images/wins/aapl.png" alt="BlueSky Pro signals on Apple (AAPL) — steady compounding" class="w-full block" loading="lazy" />
-            <figcaption class="p-5">
-              <p class="font-display font-bold text-olive-900 mb-2">AAPL <span class="text-olive-500 font-normal text-sm block sm:inline">Apple Inc. · NASDAQ</span></p>
-              <p class="text-olive-700 text-sm leading-relaxed">Multiple TP exits in the +6% to +10% range. Small losses capped near -11%. Steady compounding.</p>
-            </figcaption>
-          </figure>
+        <div class="sig-slideshow" data-slideshow>
+          <script type="application/json" data-slides>
+[
+  {"src":"images/wins/anet.png","alt":"BlueSky Pro signals on Arista Networks","symbol":"ANET","exchange":"Arista Networks · NYSE","text":"Multiple signals in an extended uptrend. Early TP closes captured +13% to +28%; the runner pushed past $140. Every exit — by the book."},
+  {"src":"images/wins/asts.png","alt":"BlueSky Pro signals on AST SpaceMobile","symbol":"ASTS","exchange":"AST SpaceMobile · NASDAQ","text":"First signal alone closed TP1 at +71%. The runner activated and ran far beyond the first close. The kind of trade that makes the year."},
+  {"src":"images/wins/baba.png","alt":"BlueSky Pro signals on Alibaba","symbol":"BABA","exchange":"Alibaba Group · NYSE","text":"Single signal from a $90 base. TP2 fired at +56%. One of those situations where 'a little more room' translates into real money."},
+  {"src":"images/wins/asml.png","alt":"BlueSky Pro signals on ASML","symbol":"ASML","exchange":"ASML Holding · NASDAQ","text":"The long-form classic — recurring signals across 5 years. Stacked closes from +12% to +33%. A repeating setup the system never loses sight of."},
+  {"src":"images/wins/spot.png","alt":"BlueSky Pro signals on Spotify","symbol":"SPOT","exchange":"Spotify · NYSE","text":"From $300 to $700. TP1 at +18%, TP2 at +42%. What sit-on-position does when momentum stays."},
+  {"src":"images/wins/tsla.png","alt":"BlueSky Pro signals on Tesla","symbol":"TSLA","exchange":"Tesla · NASDAQ","text":"Single signal closed TP2 at +47% from $280. Stop sized to the stock's volatility. Partial out, runner keeps climbing."},
+  {"src":"images/wins/nem.png","alt":"BlueSky Pro signals on Newmont","symbol":"NEM","exchange":"Newmont Corporation · NYSE","text":"Gold back on stage. Four stacked TP closes, the highest at +38%. Runner is still up another +28% above the last close."},
+  {"src":"images/wins/amat.png","alt":"BlueSky Pro signals on Applied Materials","symbol":"AMAT","exchange":"Applied Materials · NASDAQ","text":"Dry trend, no noise. Four TP closes from +10% to +15%. Stayed in while MACD didn't justify exit."},
+  {"src":"images/wins/ibkr.png","alt":"BlueSky Pro signals on Interactive Brokers","symbol":"IBKR","exchange":"Interactive Brokers · NASDAQ","text":"Aggressive signal from a $40 base. TP2 fired at +56%; the rest still running. The rulebook doesn't bail if the trend doesn't bail."},
+  {"src":"images/wins/vsat.png","alt":"BlueSky Pro signals on Viasat","symbol":"VSAT","exchange":"Viasat · NASDAQ","text":"From $20 to $65. Three TP closes — the biggest at +45%. The runner is the story."},
+  {"src":"images/wins/bwxt.png","alt":"BlueSky Pro signals on BWX Technologies","symbol":"BWXT","exchange":"BWX Technologies · NYSE","text":"+11% on first TP1, then two follow-up signals in the trend. Runner crossing $250 — partial taken, the rest still working."},
+  {"src":"images/wins/alm.png","alt":"BlueSky Pro signal on ALM","symbol":"ALM","exchange":"NASDAQ","text":"From $4 to $25 in 18 months. Three guided TP closes — the highest at +33%. Stop trailed up the whole way."},
+  {"src":"images/wins/bkr.png","alt":"BlueSky Pro signals on Baker Hughes","symbol":"BKR","exchange":"Baker Hughes · NASDAQ","text":"Stable trend, no drama. TP1 at +10% closed clean; runner still active above $46. Stop trailing tight underneath."},
+  {"src":"images/wins/zeta.png","alt":"BlueSky Pro signals on Zeta Global","symbol":"ZETA","exchange":"Zeta Global · NYSE","text":"TP1 at +15%, TP2 at +25%. A prior stop took -10% — the system moves to the next signal without hesitation."},
+  {"src":"images/wins/tmo.png","alt":"BlueSky Pro signals on Thermo Fisher","symbol":"TMO","exchange":"Thermo Fisher Scientific · NYSE","text":"Single signal that worked clean. TP1 at +10%, TP2 at +12%. Not flashy — exactly the kind that compounds month over month."}
+]
+          </script>
+          <div class="sig-stage" data-stage>
+            <div class="sig-real-badge">REAL SCREENSHOT</div>
+            <img src="images/wins/anet.png" alt="" />
+            <button type="button" class="sig-arrow prev" data-prev aria-label="Previous">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button type="button" class="sig-arrow next" data-next aria-label="Next">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+          <div class="sig-caption">
+            <div class="sig-cap-head">
+              <div>
+                <span class="sig-symbol" data-symbol></span>
+                <span class="sig-exchange" data-exchange></span>
+              </div>
+              <span class="sig-counter" data-counter></span>
+            </div>
+            <p class="sig-text" data-text></p>
+          </div>
+          <div class="sig-dots" data-dots></div>
         </div>
       </div>
 
-      <!-- Honest Losses -->
-      <div>
+      <!-- Honest Losses — slideshow -->
+      <div class="mb-20">
         <div class="flex items-center gap-3 mb-4">
           <div class="w-2 h-2 rounded-full bg-red-400"></div>
           <h3 class="font-display font-bold text-2xl text-olive-900">Honest Losses</h3>
           <div class="flex-1 h-px bg-olive-300/60"></div>
+          <span class="text-olive-500 text-xs font-medium tracking-wider">4 examples</span>
         </div>
-        <p class="text-olive-700 mb-10 max-w-2xl leading-relaxed">We show these on purpose. A system that never loses doesn't exist. What matters is <strong class="text-olive-900">how</strong> the losses behave — small, predictable, and out of the way before they can compound.</p>
+        <p class="text-olive-700 mb-8 max-w-2xl leading-relaxed">We show these on purpose. A system that never loses doesn't exist. What matters is <strong class="text-olive-900">how</strong> the losses behave — small, predictable, and out of the way before they can compound.</p>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          <figure class="card rounded-xl overflow-hidden flex flex-col">
-            <img src="images/losses/biib.png" alt="BlueSky Pro honest loss example on Biogen (BIIB) — stopped out around -10%" class="w-full block" loading="lazy" />
+        <div class="sig-slideshow" data-slideshow>
+          <script type="application/json" data-slides>
+[
+  {"src":"images/losses/bj.png","alt":"BlueSky Pro honest loss on BJ's Wholesale","symbol":"BJ","exchange":"BJ's Wholesale Club · NYSE","text":"First signal closed at SL near -10%. The system didn't double down — it exited and moved on. This is how losses are supposed to behave: small, clear, behind us."},
+  {"src":"images/losses/orcl.png","alt":"BlueSky Pro honest loss on Oracle","symbol":"ORCL","exchange":"Oracle Corporation · NYSE","text":"TP1 at +12% closed clean, then a follow-up signal stopped at -8%. An honest cycle — some signals win, some don't, and that's the test."},
+  {"src":"images/losses/rmd.png","alt":"BlueSky Pro honest loss on ResMed","symbol":"RMD","exchange":"ResMed · NYSE","text":"Clean -7% stop, no 'maybe a little more.' The setup didn't prove itself — we exited, capital preserved for the next signal."},
+  {"src":"images/losses/rtx.png","alt":"BlueSky Pro honest loss on RTX","symbol":"RTX","exchange":"RTX Corporation · NYSE","text":"A fresh loss — stop sized to volatility. Single signal, system didn't try to rescue a setup that already failed."}
+]
+          </script>
+          <div class="sig-stage" data-stage>
+            <div class="sig-real-badge">REAL SCREENSHOT</div>
+            <img src="images/losses/bj.png" alt="" />
+            <button type="button" class="sig-arrow prev" data-prev aria-label="Previous">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button type="button" class="sig-arrow next" data-next aria-label="Next">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+          <div class="sig-caption">
+            <div class="sig-cap-head">
+              <div>
+                <span class="sig-symbol" data-symbol></span>
+                <span class="sig-exchange" data-exchange></span>
+              </div>
+              <span class="sig-counter" data-counter></span>
+            </div>
+            <p class="sig-text" data-text></p>
+          </div>
+          <div class="sig-dots" data-dots></div>
+        </div>
+      </div>
+
+      <!-- How it looks live — GIFs -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-2 h-2 rounded-full bg-gold"></div>
+          <h3 class="font-display font-bold text-2xl text-olive-900">How it looks live</h3>
+          <div class="flex-1 h-px bg-olive-300/60"></div>
+          <span class="text-olive-500 text-xs font-medium tracking-wider">live</span>
+        </div>
+        <p class="text-olive-700 mb-8 max-w-2xl leading-relaxed">
+          A signal wakes up. The stop draws automatically. The TP is marked. Every decision visible — no decoding, no guessing.
+          <span class="block text-olive-600 text-sm mt-2">Click the play button to load the GIF ⤵</span>
+        </p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <figure class="card rounded-xl overflow-hidden">
+            <div class="gif-poster" data-gif-trigger data-gif-src="images/live/bwxt.gif" data-gif-poster="images/wins/bwxt.png">
+              <img src="images/wins/bwxt.png" alt="Live GIF of BlueSky Pro signal on BWXT" loading="lazy" />
+              <button class="gif-play-btn" type="button" aria-label="Play GIF">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>
+              </button>
+              <div class="gif-hint">Click to play · ~30MB</div>
+              <button class="gif-stop-btn" type="button" aria-label="Stop GIF" title="Stop">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
             <figcaption class="p-5">
-              <p class="font-display font-bold text-olive-900 mb-2">BIIB <span class="text-olive-500 font-normal text-sm block sm:inline">Biogen · NASDAQ</span></p>
-              <p class="text-olive-700 text-sm leading-relaxed">Stopped out near -10%. No "just a little more room." The rulebook fired; we exited. Next setup.</p>
+              <p class="font-display font-bold text-olive-900 mb-2">BWXT <span class="text-olive-500 font-normal text-sm block sm:inline">a signal coming alive</span></p>
+              <p class="text-olive-700 text-sm leading-relaxed">A BUY signal fires. The stop draws automatically. TP1 marked in the box. All without you clicking a thing — you just watch.</p>
             </figcaption>
           </figure>
 
-          <figure class="card rounded-xl overflow-hidden flex flex-col">
-            <img src="images/losses/cifr.png" alt="BlueSky Pro honest loss example on Cipher Mining (CIFR) — volatile name, wider stop" class="w-full block" loading="lazy" />
+          <figure class="card rounded-xl overflow-hidden">
+            <div class="gif-poster" data-gif-trigger data-gif-src="images/live/tsla.gif" data-gif-poster="images/wins/tsla.png">
+              <img src="images/wins/tsla.png" alt="Live GIF of BlueSky Pro signal on TSLA" loading="lazy" />
+              <button class="gif-play-btn" type="button" aria-label="Play GIF">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>
+              </button>
+              <div class="gif-hint">Click to play · ~13MB</div>
+              <button class="gif-stop-btn" type="button" aria-label="Stop GIF" title="Stop">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
             <figcaption class="p-5">
-              <p class="font-display font-bold text-olive-900 mb-2">CIFR <span class="text-olive-500 font-normal text-sm block sm:inline">Cipher Mining · NASDAQ</span></p>
-              <p class="text-olive-700 text-sm leading-relaxed">Honest loss on a volatile name. Stop sized to match its character. Within bounds — survived to trade the next one.</p>
+              <p class="font-display font-bold text-olive-900 mb-2">TSLA <span class="text-olive-500 font-normal text-sm block sm:inline">a full signal, start to close</span></p>
+              <p class="text-olive-700 text-sm leading-relaxed">Entry. Stop. TP. Every decision visible and labeled on the chart — no decoding, no guesswork, no what-now.</p>
             </figcaption>
           </figure>
         </div>
@@ -1222,6 +1465,163 @@
     </span>
     <span class="font-semibold text-sm whitespace-nowrap">Good · Bad · Ugly</span>
   </button>
+
+  <!-- Signal slideshow + GIF player -->
+  <script>
+    (function () {
+      function initSlideshow(root) {
+        var dataEl = root.querySelector('script[data-slides]');
+        if (!dataEl) return;
+        var slides;
+        try { slides = JSON.parse(dataEl.textContent); }
+        catch (e) { console.error('Slideshow JSON parse error', e); return; }
+        if (!slides || !slides.length) return;
+
+        var stage      = root.querySelector('[data-stage]');
+        var img        = stage.querySelector('img');
+        var symbolEl   = root.querySelector('[data-symbol]');
+        var exchangeEl = root.querySelector('[data-exchange]');
+        var textEl     = root.querySelector('[data-text]');
+        var counterEl  = root.querySelector('[data-counter]');
+        var dotsEl     = root.querySelector('[data-dots]');
+        var prevBtn    = root.querySelector('[data-prev]');
+        var nextBtn    = root.querySelector('[data-next]');
+
+        var current = 0;
+        var paused  = false;
+        var timer   = null;
+        var INTERVAL = 8000;
+
+        slides.forEach(function (_, i) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.setAttribute('aria-label', 'Signal ' + (i + 1));
+          b.addEventListener('click', function () { go(i); resetTimer(); });
+          dotsEl.appendChild(b);
+        });
+
+        function preload(i) {
+          if (i < 0 || i >= slides.length) return;
+          var im = new Image();
+          im.src = slides[i].src;
+        }
+
+        function render() {
+          var s = slides[current];
+          img.classList.add('is-swapping');
+          var preImg = new Image();
+          preImg.onload = function () {
+            img.src = s.src;
+            img.alt = s.alt || '';
+            img.classList.remove('is-swapping');
+          };
+          preImg.onerror = function () {
+            img.src = s.src;
+            img.alt = s.alt || '';
+            img.classList.remove('is-swapping');
+          };
+          preImg.src = s.src;
+
+          symbolEl.textContent   = s.symbol;
+          exchangeEl.textContent = s.exchange;
+          textEl.textContent     = s.text;
+          counterEl.textContent  = (current + 1) + ' / ' + slides.length;
+          [].forEach.call(dotsEl.children, function (el, i) {
+            el.classList.toggle('active', i === current);
+          });
+          preload((current + 1) % slides.length);
+          preload((current - 1 + slides.length) % slides.length);
+        }
+
+        function go(i) {
+          current = (i + slides.length) % slides.length;
+          render();
+        }
+
+        function startTimer() {
+          stopTimer();
+          timer = setInterval(function () { if (!paused) go(current + 1); }, INTERVAL);
+        }
+        function stopTimer()  { if (timer) { clearInterval(timer); timer = null; } }
+        function resetTimer() { stopTimer(); startTimer(); }
+
+        prevBtn.addEventListener('click', function () { go(current - 1); resetTimer(); });
+        nextBtn.addEventListener('click', function () { go(current + 1); resetTimer(); });
+        root.addEventListener('mouseenter', function () { paused = true;  });
+        root.addEventListener('mouseleave', function () { paused = false; });
+
+        var touchX = null;
+        stage.addEventListener('touchstart', function (e) {
+          if (e.touches.length === 1) touchX = e.touches[0].clientX;
+        }, { passive: true });
+        stage.addEventListener('touchend', function (e) {
+          if (touchX === null) return;
+          var dx = e.changedTouches[0].clientX - touchX;
+          if (Math.abs(dx) > 50) {
+            go(dx < 0 ? current + 1 : current - 1);
+            resetTimer();
+          }
+          touchX = null;
+        }, { passive: true });
+
+        render();
+        startTimer();
+      }
+
+      document.querySelectorAll('[data-slideshow]').forEach(initSlideshow);
+
+      document.querySelectorAll('[data-gif-trigger]').forEach(function (el) {
+        var imgEl       = el.querySelector('img');
+        var playBtn     = el.querySelector('.gif-play-btn');
+        var stopBtn     = el.querySelector('.gif-stop-btn');
+        var hint        = el.querySelector('.gif-hint');
+        var gifSrc      = el.getAttribute('data-gif-src');
+        var posterSrc   = el.getAttribute('data-gif-poster') || imgEl.src;
+        var hintDefault = hint ? hint.textContent : '';
+
+        function play() {
+          if (el.classList.contains('is-loaded') || el.classList.contains('is-loading')) return;
+          if (hint) hint.textContent = 'Loading GIF…';
+          el.classList.add('is-loading');
+          var loader = new Image();
+          loader.onload = function () {
+            imgEl.src = gifSrc;
+            el.classList.remove('is-loading');
+            el.classList.add('is-loaded');
+            if (playBtn) playBtn.style.display = 'none';
+            if (hint) hint.style.display = 'none';
+            el.style.cursor = 'default';
+          };
+          loader.onerror = function () {
+            el.classList.remove('is-loading');
+            if (hint) hint.textContent = 'Load failed';
+          };
+          loader.src = gifSrc;
+        }
+
+        function stop() {
+          imgEl.src = posterSrc;
+          el.classList.remove('is-loaded');
+          if (playBtn) playBtn.style.display = '';
+          if (hint) { hint.style.display = ''; hint.textContent = hintDefault; }
+          el.style.cursor = '';
+        }
+
+        el.addEventListener('click', function (e) {
+          if (e.target.closest('.gif-stop-btn')) return;
+          if (el.classList.contains('is-loaded') || el.classList.contains('is-loading')) return;
+          play();
+        });
+
+        if (stopBtn) {
+          stopBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            stop();
+          });
+        }
+      });
+    })();
+  </script>
 
   <script>
     (function () {
