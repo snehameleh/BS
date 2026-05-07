@@ -438,10 +438,10 @@
         <a href="#faq" class="hover:text-olive-900 transition">FAQ</a>
       </div>
       <div class="flex items-center gap-2 shrink-0">
-        <button type="button" onclick="openHonestGuide()" class="hidden lg:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-gold-dark bg-gold-light/25 hover:bg-gold-light/45 border border-gold/40 hover:border-gold/60 shadow-sm transition" aria-label="Open The Good, The Bad and The Ugly">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-          <span class="whitespace-nowrap">Good · Bad · Ugly</span>
-        </button>
+        <span class="hidden lg:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-olive-700 bg-olive-100/60 border border-olive-300/50 shadow-sm cursor-not-allowed select-none" title="New presentation in production — coming soon">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/></svg>
+          <span class="whitespace-nowrap">Presentation in Progress</span>
+        </span>
         <a href="#pricing" class="btn-primary px-5 py-2 rounded-full text-sm whitespace-nowrap">Get Access</a>
       </div>
     </div>
@@ -502,61 +502,48 @@
           </div>
         </div>
 
-        <!-- RIGHT: "Good, Bad, Ugly" teaser card — opens honest guide modal -->
+        <!-- RIGHT: IN CONSTRUCTION placeholder (legacy "Good/Bad/Ugly" card removed 2026-05-03) -->
         <div class="lg:col-span-4 lg:max-w-xs lg:ml-auto w-full">
-          <button type="button" onclick="openHonestGuide()" class="card rounded-2xl p-5 md:p-6 relative w-full text-left group hover:shadow-xl transition-all cursor-pointer block ring-2 ring-gold/35 hover:ring-gold/55 shadow-md">
+          <div class="card rounded-2xl p-5 md:p-6 relative w-full text-left ring-2 ring-olive-300/50 shadow-md">
             <div class="flex items-center justify-between mb-5">
               <div class="flex items-center gap-2">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-60"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-gold"></span>
-                </span>
-                <span class="text-[11px] font-bold text-olive-700 tracking-widest uppercase">Honest Guide</span>
+                <svg class="w-3.5 h-3.5 text-olive-600" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span class="text-[11px] font-bold text-olive-700 tracking-widest uppercase">Coming Soon</span>
               </div>
-              <span class="text-[11px] font-mono text-olive-500">15 slides</span>
+              <span class="text-[11px] font-mono text-olive-500">v2</span>
             </div>
 
-            <!-- 3 chips: Good / Bad / Ugly -->
-            <div class="grid grid-cols-3 gap-2 mb-5">
-              <div class="rounded-lg py-3 px-1 bg-olive-100 border border-olive-300 text-center">
-                <svg class="w-6 h-6 mx-auto mb-1 text-olive-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8M14 7h7v7"/></svg>
-                <div class="text-[11px] font-bold text-olive-800 tracking-wider uppercase">Good</div>
-              </div>
-              <div class="rounded-lg py-3 px-1 bg-red-100 border border-red-300 text-center">
-                <svg class="w-6 h-6 mx-auto mb-1 text-red-600" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7l6 6 4-4 8 8M14 17h7v-7"/></svg>
-                <div class="text-[11px] font-bold text-red-700 tracking-wider uppercase">Bad</div>
-              </div>
-              <div class="rounded-lg py-3 px-1 bg-gold-light/30 border border-gold/50 text-center">
-                <svg class="w-6 h-6 mx-auto mb-1 text-gold-dark" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0 3.5h.01M5.07 19h13.86c1.54 0 2.5-1.67 1.73-3L13.73 4a2 2 0 00-3.46 0L3.34 16c-.77 1.33.19 3 1.73 3z"/></svg>
-                <div class="text-[11px] font-bold text-gold-dark tracking-wider uppercase">Ugly</div>
-              </div>
+            <div class="flex items-center justify-center mb-5 py-6 rounded-lg bg-cream-100 border border-dashed border-olive-300/60">
+              <svg class="w-14 h-14 text-olive-500" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"/>
+              </svg>
             </div>
 
-            <h3 class="font-display font-bold text-xl text-olive-900 mb-2 leading-tight">The <span class="text-olive-500">Good</span>, the <span class="text-red-600">Bad</span>,<br/>and the <span class="text-gold-dark italic">Ugly</span>.</h3>
-            <p class="text-[13px] text-olive-700 leading-relaxed mb-4">The full story — wins, losses, and the cycles that failed and shaped every rule. No marketing.</p>
+            <h3 class="font-display font-bold text-xl text-olive-900 mb-2 leading-tight">New presentation <span class="text-olive-gradient italic">in production</span>.</h3>
+            <p class="text-[13px] text-olive-700 leading-relaxed mb-2">The full transparent guide — being rebuilt with the updated numbers and new logic. Coming soon.</p>
 
-            <div class="inline-flex items-center gap-1.5 text-sm font-bold text-olive-800 group-hover:text-olive-900 transition">
-              <span>Open the guide</span>
-              <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <div class="inline-flex items-center gap-1.5 text-xs font-semibold text-olive-600">
+              <span class="w-1.5 h-1.5 rounded-full bg-olive-400"></span>
+              <span>IN CONSTRUCTION</span>
             </div>
-          </button>
+          </div>
         </div>
       </div>
 
       <!-- Proof strip — sits centered below the split -->
       <div class="flex flex-wrap items-center justify-center gap-x-8 md:gap-x-12 gap-y-4 mt-8 md:mt-14 pt-6 md:pt-10 border-t border-olive-200/60">
         <div class="flex items-baseline gap-2">
-          <span class="font-display font-bold text-2xl md:text-3xl text-olive-gradient">+37.26%</span>
+          <span class="font-display font-bold text-2xl md:text-3xl text-olive-gradient">+41.78%</span>
           <span class="text-olive-600 text-xs uppercase tracking-wider font-semibold">CAGR</span>
         </div>
         <div class="w-px h-6 bg-olive-300 hidden sm:block"></div>
         <div class="flex items-baseline gap-2">
-          <span class="font-display font-bold text-2xl md:text-3xl text-olive-gradient">1.51</span>
+          <span class="font-display font-bold text-2xl md:text-3xl text-olive-gradient">2.03</span>
           <span class="text-olive-600 text-xs uppercase tracking-wider font-semibold">Sharpe</span>
         </div>
         <div class="w-px h-6 bg-olive-300 hidden sm:block"></div>
         <div class="flex items-baseline gap-2">
-          <span class="font-display font-bold text-2xl md:text-3xl text-olive-gradient">2.57</span>
+          <span class="font-display font-bold text-2xl md:text-3xl text-olive-gradient">3.03</span>
           <span class="text-olive-600 text-xs uppercase tracking-wider font-semibold">MAR Ratio</span>
         </div>
       </div>
@@ -636,11 +623,13 @@
           </div>
           <p class="text-xs font-bold tracking-widest text-gold uppercase mb-2">Pillar 02</p>
           <h3 class="font-display font-bold text-xl md:text-2xl mb-2 md:mb-3 text-olive-900">The Precision Indicator</h3>
-          <p class="text-olive-700 leading-relaxed mb-4 md:mb-5">A proprietary Pine Script indicator that signals exactly when to enter and exit — on the daily chart. With a complete alert system so you never miss a setup.</p>
+          <p class="text-olive-700 leading-relaxed mb-4 md:mb-5">A proprietary Pine Script indicator with a <strong class="text-olive-900">dual-entry system</strong> — two complementary algorithms running in parallel and adapting to market conditions. Every signal arrives clearly marked.</p>
           <ul class="space-y-2 text-sm text-olive-700">
+            <li class="flex gap-2"><span class="text-olive-500 font-bold">→</span> 🟢 <strong>STANDARD</strong> — stable setups in healthy uptrends</li>
+            <li class="flex gap-2"><span class="text-olive-500 font-bold">→</span> 🚀 <strong>ROCKET</strong> — high-volatility momentum setups</li>
+            <li class="flex gap-2"><span class="text-olive-500 font-bold">→</span> 🛫 <strong>LIFTOFF</strong> — resistance breakouts after consolidation</li>
             <li class="flex gap-2"><span class="text-olive-500 font-bold">→</span> Non-repainting entry &amp; exit signals</li>
-            <li class="flex gap-2"><span class="text-olive-500 font-bold">→</span> Full alert system (email, app, SMS)</li>
-            <li class="flex gap-2"><span class="text-olive-500 font-bold">→</span> Delivered inside TradingView</li>
+            <li class="flex gap-2"><span class="text-olive-500 font-bold">→</span> Full alert system — delivered inside TradingView</li>
           </ul>
         </div>
 
@@ -800,16 +789,16 @@
           <div class="rounded-xl border-2 border-olive-400 bg-olive-50 p-5 md:p-6">
             <p class="text-xs text-olive-700 font-bold tracking-widest uppercase mb-3">With BlueSky Pro</p>
             <div class="flex items-baseline gap-3 mb-2">
-              <span class="font-display font-bold text-4xl md:text-5xl text-olive-gradient">+37.26%</span>
+              <span class="font-display font-bold text-4xl md:text-5xl text-olive-gradient">+41.78%</span>
               <span class="text-olive-600 text-sm">CAGR</span>
             </div>
-            <p class="text-olive-700 text-sm">Sharpe: 1.51 · Compounding gains. The system is the alpha.</p>
+            <p class="text-olive-700 text-sm">Sharpe: 2.03 · Compounding gains. The system is the alpha.</p>
           </div>
         </div>
         <div class="text-center pt-2">
           <span class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-gradient-to-r from-gold-light/30 to-gold/20 border border-gold/40">
             <svg class="w-4 h-4 text-gold-dark" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 01.894 1.79l-1.233.616 1.738 5.42a1 1 0 01-.285 1.05A3.989 3.989 0 0115 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.715-5.349L11 6.477V16h2a1 1 0 110 2H7a1 1 0 110-2h2V6.477L6.237 7.582l1.715 5.349a1 1 0 01-.285 1.05A3.989 3.989 0 015 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.738-5.42-1.233-.617a1 1 0 01.894-1.788l1.599.799L9 4.323V3a1 1 0 011-1z"/></svg>
-            <span class="font-display font-bold text-lg text-olive-900">+19.99pp Alpha Delta</span>
+            <span class="font-display font-bold text-lg text-olive-900">+24.51pp Alpha Delta</span>
           </span>
         </div>
       </div>
@@ -817,19 +806,19 @@
       <!-- Stat blocks -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-8 md:mb-10">
         <div class="card rounded-xl p-4 md:p-6 text-center">
-          <p class="font-display font-bold text-3xl md:text-4xl text-olive-gradient mb-1">+37.26%</p>
+          <p class="font-display font-bold text-3xl md:text-4xl text-olive-gradient mb-1">+41.78%</p>
           <p class="text-[11px] md:text-xs text-olive-600 uppercase tracking-wider font-semibold">CAGR</p>
         </div>
         <div class="card rounded-xl p-4 md:p-6 text-center">
-          <p class="font-display font-bold text-3xl md:text-4xl text-olive-gradient mb-1">1.51</p>
+          <p class="font-display font-bold text-3xl md:text-4xl text-olive-gradient mb-1">2.03</p>
           <p class="text-[11px] md:text-xs text-olive-600 uppercase tracking-wider font-semibold">Sharpe Ratio</p>
         </div>
         <div class="card rounded-xl p-4 md:p-6 text-center">
-          <p class="font-display font-bold text-3xl md:text-4xl text-olive-gradient mb-1">-14.50%</p>
+          <p class="font-display font-bold text-3xl md:text-4xl text-olive-gradient mb-1">-13.81%</p>
           <p class="text-[11px] md:text-xs text-olive-600 uppercase tracking-wider font-semibold">Max Drawdown</p>
         </div>
         <div class="card rounded-xl p-4 md:p-6 text-center">
-          <p class="font-display font-bold text-3xl md:text-4xl text-olive-gradient mb-1">49.6%</p>
+          <p class="font-display font-bold text-3xl md:text-4xl text-olive-gradient mb-1">58.2%</p>
           <p class="text-[11px] md:text-xs text-olive-600 uppercase tracking-wider font-semibold">Win Rate</p>
         </div>
       </div>
@@ -864,7 +853,7 @@
               </div>
               <div class="px-3 md:px-4 py-4 md:py-6 text-center" style="background: linear-gradient(180deg, #E5EAC9 0%, #C9D9A0 100%);">
                 <p class="text-[10px] font-bold tracking-widest text-olive-800 uppercase mb-2">BlueSky Pro</p>
-                <p class="font-display font-black text-4xl md:text-5xl text-olive-700 leading-none">+30.9%</p>
+                <p class="font-display font-black text-4xl md:text-5xl text-olive-700 leading-none">+11.8%</p>
                 <div class="mt-3 inline-flex items-center gap-1 text-olive-700">
                   <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L6.707 7.707a1 1 0 01-1.414 0z"/></svg>
                   <span class="text-[10px] font-black tracking-widest uppercase">Profited</span>
@@ -873,16 +862,16 @@
             </div>
           </div>
 
-          <!-- BEAR 2022 -->
+          <!-- 2025 Spring Tariff Panic -->
           <div class="rounded-xl overflow-hidden border-2 border-olive-300 bg-white shadow-md">
             <div class="px-5 py-3 bg-olive-900 text-cream-50">
-              <p class="text-[10px] font-bold tracking-[0.18em] text-olive-200 uppercase">2022 · Full Bear Market</p>
-              <p class="font-display font-bold text-base mt-0.5">12 months. Capitulation everywhere.</p>
+              <p class="text-[10px] font-bold tracking-[0.18em] text-olive-200 uppercase">2025 · Spring Tariff Panic</p>
+              <p class="font-display font-bold text-base mt-0.5">7 weeks. Markets in correction.</p>
             </div>
             <div class="grid grid-cols-2">
               <div class="px-3 md:px-4 py-4 md:py-6 text-center" style="background: linear-gradient(180deg, #FEE2E2 0%, #FECACA 100%);">
                 <p class="text-[10px] font-bold tracking-widest text-red-800 uppercase mb-2">S&amp;P 500</p>
-                <p class="font-display font-black text-4xl md:text-5xl text-red-700 leading-none">−25%</p>
+                <p class="font-display font-black text-4xl md:text-5xl text-red-700 leading-none">−19%</p>
                 <div class="mt-3 inline-flex items-center gap-1 text-red-700">
                   <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M14.707 12.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l2.293-2.293a1 1 0 011.414 0z"/></svg>
                   <span class="text-[10px] font-black tracking-widest uppercase">Bled</span>
@@ -890,7 +879,7 @@
               </div>
               <div class="px-3 md:px-4 py-4 md:py-6 text-center" style="background: linear-gradient(180deg, #E5EAC9 0%, #C9D9A0 100%);">
                 <p class="text-[10px] font-bold tracking-widest text-olive-800 uppercase mb-2">BlueSky Pro</p>
-                <p class="font-display font-black text-4xl md:text-5xl text-olive-700 leading-none">+40.5%</p>
+                <p class="font-display font-black text-4xl md:text-5xl text-olive-700 leading-none">+25.6%</p>
                 <div class="mt-3 inline-flex items-center gap-1 text-olive-700">
                   <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L6.707 7.707a1 1 0 01-1.414 0z"/></svg>
                   <span class="text-[10px] font-black tracking-widest uppercase">Profited</span>
@@ -903,19 +892,19 @@
         <!-- 4 KPI grid — supporting role under the hero -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 pt-6 border-t border-olive-200">
           <div class="text-center">
-            <p class="font-display font-bold text-2xl md:text-4xl text-olive-gradient leading-none">+18.50%</p>
+            <p class="font-display font-bold text-2xl md:text-4xl text-olive-gradient leading-none">+14.93%</p>
             <p class="text-[11px] md:text-xs text-olive-600 uppercase tracking-wider font-semibold mt-2">4-yr CAGR</p>
           </div>
           <div class="text-center">
-            <p class="font-display font-bold text-2xl md:text-4xl text-olive-gradient leading-none">1.19</p>
+            <p class="font-display font-bold text-2xl md:text-4xl text-olive-gradient leading-none">1.35</p>
             <p class="text-[11px] md:text-xs text-olive-600 uppercase tracking-wider font-semibold mt-2">Sharpe</p>
           </div>
           <div class="text-center">
-            <p class="font-display font-bold text-2xl md:text-4xl text-olive-gradient leading-none">−19.54%</p>
+            <p class="font-display font-bold text-2xl md:text-4xl text-olive-gradient leading-none">−14.63%</p>
             <p class="text-[11px] md:text-xs text-olive-600 uppercase tracking-wider font-semibold mt-2">Max DD</p>
           </div>
           <div class="text-center">
-            <p class="font-display font-bold text-2xl md:text-4xl text-olive-gradient leading-none">50.4%</p>
+            <p class="font-display font-bold text-2xl md:text-4xl text-olive-gradient leading-none">54.7%</p>
             <p class="text-[11px] md:text-xs text-olive-600 uppercase tracking-wider font-semibold mt-2">Win Rate</p>
           </div>
         </div>
@@ -1106,18 +1095,53 @@
     </div>
   </section>
 
-  <!-- ====== THE GOOD, THE BAD & THE UGLY ====== -->
+  <!-- ====== IN CONSTRUCTION (legacy "Good/Bad/Ugly" replaced 2026-05-03) ====== -->
   <section id="honest-guide" class="py-14 md:py-28 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-8 md:mb-14">
-        <p class="text-olive-600 text-sm font-semibold tracking-widest uppercase mb-4">No Secrets</p>
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-8 md:mb-12">
+        <p class="text-olive-600 text-sm font-semibold tracking-widest uppercase mb-4">Coming Soon</p>
         <h2 class="font-display font-bold text-4xl md:text-6xl leading-[1.05] tracking-tight mb-6 text-olive-900">
-          The Good, The Bad<br/>&amp; <span class="text-olive-gradient italic">The Ugly</span>.
+          New presentation <span class="text-olive-gradient italic">in production</span>.
         </h2>
-        <p class="text-olive-700 text-lg max-w-2xl mx-auto">The full story behind BlueSky Pro. The wins, the losses, and the failed cycles that shaped every rule.</p>
+        <p class="text-olive-700 text-lg max-w-2xl mx-auto">The full transparent guide — wins, losses, failed cycles and the new logic — is being rebuilt. Coming soon.</p>
       </div>
 
-      <div class="grid md:grid-cols-5 gap-6 md:gap-12 items-center">
+      <div class="card rounded-2xl p-10 md:p-16 text-center border-2 border-dashed border-olive-300/70" style="background: linear-gradient(180deg, #FBF9F4 0%, #F4F1E9 100%);">
+        <div class="inline-flex items-center justify-center w-24 h-24 md:w-32 md:h-32 rounded-full bg-olive-100/60 mb-6">
+          <svg class="w-14 h-14 md:w-16 md:h-16 text-olive-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"/>
+          </svg>
+        </div>
+
+        <p class="text-[11px] md:text-xs font-black tracking-[0.28em] text-olive-600 uppercase mb-4">IN CONSTRUCTION</p>
+        <h3 class="font-display font-bold text-2xl md:text-3xl text-olive-900 mb-4 leading-tight">The Honest Guide — Being Rebuilt</h3>
+
+        <p class="text-olive-700 text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-6">
+          The previous deck has been removed. A new version — reflecting the dual-entry logic and the latest performance numbers — is in progress.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-3 text-sm">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-olive-100/70 border border-olive-300/50 text-olive-700 font-semibold">
+            <span class="w-1.5 h-1.5 rounded-full bg-olive-500 animate-pulse"></span>
+            In Progress
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cream-100 border border-olive-200 text-olive-600">
+            🟢 STANDARD
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cream-100 border border-olive-200 text-olive-600">
+            🚀 ROCKET
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cream-100 border border-olive-200 text-olive-600">
+            🛫 LIFTOFF
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (legacy honest-guide section content removed below — wrapped in hidden div for safety) -->
+  <div class="hidden">
+    <div class="grid md:grid-cols-5 gap-6 md:gap-12 items-center">
         <!-- LEFT: PDF preview mockup -->
         <div class="md:col-span-2">
           <div class="relative mx-auto max-w-[260px]">
@@ -1150,11 +1174,11 @@
               <div class="mt-auto pt-4 border-t border-olive-200 flex justify-between items-center">
                 <div>
                   <p class="text-[9px] text-olive-600 uppercase tracking-wider font-semibold">CAGR</p>
-                  <p class="font-display font-bold text-lg text-olive-gradient">+37.26%</p>
+                  <p class="font-display font-bold text-lg text-olive-gradient">+41.78%</p>
                 </div>
                 <div class="text-right">
                   <p class="text-[9px] text-olive-600 uppercase tracking-wider font-semibold">Sharpe</p>
-                  <p class="font-display font-bold text-lg text-olive-gradient">1.51</p>
+                  <p class="font-display font-bold text-lg text-olive-gradient">2.03</p>
                 </div>
               </div>
             </div>
@@ -1196,7 +1220,7 @@
         </div>
       </div>
     </div>
-  </section>
+  <!-- (end hidden legacy honest-guide content) -->
 
   <!-- ====== HOW IT WORKS ====== -->
   <section id="how" class="py-14 md:py-28 px-6 bg-cream-alt">
@@ -1289,15 +1313,15 @@
         <p class="text-olive-700 text-lg max-w-2xl mx-auto">Every plan includes the full system — indicator, stock list, rulebook, and alerts.</p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6 mb-10">
-        <!-- Quarterly -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        <!-- Monthly -->
         <div class="card rounded-2xl p-6 md:p-8">
-          <p class="text-olive-600 text-sm font-semibold tracking-widest uppercase mb-2">Quarterly</p>
+          <p class="text-olive-600 text-sm font-semibold tracking-widest uppercase mb-2">Monthly</p>
           <div class="flex items-baseline gap-1 mb-1">
-            <span class="font-display font-bold text-5xl text-olive-900">$349</span>
-            <span class="text-olive-600">/ 3 mo</span>
+            <span class="font-display font-bold text-5xl text-olive-900">$99</span>
+            <span class="text-olive-600">/ mo</span>
           </div>
-          <p class="text-olive-600 text-sm mb-6">~$116/month</p>
+          <p class="text-olive-600 text-sm mb-6">Cancel anytime</p>
           <ul class="space-y-3 text-sm text-olive-700 mb-8">
             <li class="flex gap-2"><span class="text-olive-500 font-bold">✓</span> Full BlueSky Pro indicator</li>
             <li class="flex gap-2"><span class="text-olive-500 font-bold">✓</span> Curated stock watchlist</li>
@@ -1305,7 +1329,24 @@
             <li class="flex gap-2"><span class="text-olive-500 font-bold">✓</span> Alert system included</li>
             <li class="flex gap-2"><span class="text-olive-500 font-bold">✓</span> 30-day money-back guarantee</li>
           </ul>
-          <a href="#" class="btn-secondary block w-full text-center py-3 rounded-full">Get Started</a>
+          <a href="https://t.me/BlueSkyPro_Officialbot?start=monthly" class="btn-secondary block w-full text-center py-3 rounded-full">Start Monthly</a>
+        </div>
+
+        <!-- Quarterly -->
+        <div class="card rounded-2xl p-6 md:p-8">
+          <p class="text-olive-600 text-sm font-semibold tracking-widest uppercase mb-2">Quarterly</p>
+          <div class="flex items-baseline gap-1 mb-1">
+            <span class="font-display font-bold text-5xl text-olive-900">$259</span>
+            <span class="text-olive-600">/ 3 mo</span>
+          </div>
+          <p class="text-olive-600 text-sm mb-6">~$86/month · Save $38</p>
+          <ul class="space-y-3 text-sm text-olive-700 mb-8">
+            <li class="flex gap-2"><span class="text-olive-500 font-bold">✓</span> Everything in Monthly</li>
+            <li class="flex gap-2"><span class="text-olive-500 font-bold">✓</span> Three-month commitment</li>
+            <li class="flex gap-2"><span class="text-olive-500 font-bold">✓</span> Priority email support</li>
+            <li class="flex gap-2"><span class="text-olive-500 font-bold">✓</span> 30-day money-back guarantee</li>
+          </ul>
+          <a href="https://t.me/BlueSkyPro_Officialbot?start=quarterly" class="btn-secondary block w-full text-center py-3 rounded-full">Get Started</a>
         </div>
 
         <!-- Annual (FEATURED) -->
@@ -1313,10 +1354,10 @@
           <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-gold-light to-gold text-olive-900 text-xs font-black rounded-full tracking-wider uppercase">Most Popular</div>
           <p class="text-gold-dark text-sm font-bold tracking-widest uppercase mb-2">Annual</p>
           <div class="flex items-baseline gap-1 mb-1">
-            <span class="font-display font-bold text-5xl text-olive-gradient">$999</span>
+            <span class="font-display font-bold text-5xl text-olive-gradient">$889</span>
             <span class="text-olive-600">/ year</span>
           </div>
-          <p class="text-olive-600 text-sm font-semibold mb-6">Save $397 vs. quarterly</p>
+          <p class="text-olive-600 text-sm font-semibold mb-6">~$74/month · Save $299</p>
           <ul class="space-y-3 text-sm text-olive-800 mb-8">
             <li class="flex gap-2"><span class="text-olive-500 font-bold">✓</span> Everything in Quarterly</li>
             <li class="flex gap-2"><span class="text-olive-500 font-bold">✓</span> Priority support</li>
@@ -1324,14 +1365,14 @@
             <li class="flex gap-2"><span class="text-olive-500 font-bold">✓</span> Rulebook revisions included</li>
             <li class="flex gap-2"><span class="text-olive-500 font-bold">✓</span> 30-day money-back guarantee</li>
           </ul>
-          <a href="#" class="btn-gold block w-full text-center py-3 rounded-full">Get BlueSky Pro</a>
+          <a href="https://t.me/BlueSkyPro_Officialbot?start=annual" class="btn-gold block w-full text-center py-3 rounded-full">Get BlueSky Pro</a>
         </div>
 
         <!-- Lifetime -->
         <div class="card rounded-2xl p-6 md:p-8">
           <p class="text-olive-600 text-sm font-semibold tracking-widest uppercase mb-2">Lifetime</p>
           <div class="flex items-baseline gap-1 mb-1">
-            <span class="font-display font-bold text-5xl text-olive-900">$6,997</span>
+            <span class="font-display font-bold text-5xl text-olive-900">$2,979</span>
           </div>
           <p class="text-olive-600 text-sm mb-6">One payment. Forever access.</p>
           <ul class="space-y-3 text-sm text-olive-700 mb-8">
@@ -1341,7 +1382,7 @@
             <li class="flex gap-2"><span class="text-olive-500 font-bold">✓</span> Founding member status</li>
             <li class="flex gap-2"><span class="text-olive-500 font-bold">✓</span> 30-day money-back guarantee</li>
           </ul>
-          <a href="#" class="btn-secondary block w-full text-center py-3 rounded-full">Go Lifetime</a>
+          <a href="https://t.me/BlueSkyPro_Officialbot?start=lifetime" class="btn-secondary block w-full text-center py-3 rounded-full">Go Lifetime</a>
         </div>
       </div>
 
@@ -1443,54 +1484,7 @@
     </div>
   </footer>
 
-  <!-- ====== HONEST GUIDE SLIDESHOW MODAL ====== -->
-  <div id="honest-guide-modal" class="hidden fixed inset-0 z-[100] items-center justify-center p-3 md:p-6" style="background:rgba(31,38,23,0.92);backdrop-filter:blur(8px);" role="dialog" aria-modal="true" aria-labelledby="hg-modal-title">
-    <div class="relative w-full max-w-6xl bg-cream-50 rounded-2xl shadow-2xl flex flex-col overflow-hidden" style="height: min(88vh, 820px);">
-
-      <!-- Header -->
-      <div class="flex items-center justify-between gap-3 px-4 md:px-5 py-2 border-b border-olive-200 bg-cream-100 shrink-0">
-        <div class="flex items-center gap-2.5 min-w-0">
-          <div class="w-7 h-7 rounded-md bg-gradient-to-br from-olive-400 to-olive-600 flex items-center justify-center shrink-0">
-            <svg class="w-4 h-4 text-cream-50" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8M14 7h7v7"/></svg>
-          </div>
-          <span id="hg-modal-title" class="font-display font-bold text-sm md:text-base text-olive-900 truncate">The Good, The Bad &amp; The Ugly</span>
-        </div>
-        <div class="flex items-center gap-1.5 shrink-0">
-          <span id="hg-counter" class="text-xs font-mono text-olive-600 px-2 whitespace-nowrap">1 / 15</span>
-          <a href="assets/honest-guide.pdf" download class="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold text-olive-700 hover:text-olive-900 px-3 py-1.5 rounded-full hover:bg-olive-100 transition" title="Download original PDF">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/></svg>
-            PDF
-          </a>
-          <button type="button" onclick="closeHonestGuide()" class="w-9 h-9 rounded-full hover:bg-olive-100 flex items-center justify-center text-olive-700 hover:text-olive-900 transition" aria-label="Close">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Body row: prev column | slide | next column. Arrows live OUTSIDE the slide image. -->
-      <div class="flex items-stretch flex-1 min-h-0 bg-olive-900">
-        <!-- Prev column -->
-        <button type="button" id="hg-prev" onclick="hgPrev()" class="shrink-0 w-10 sm:w-12 md:w-16 flex items-center justify-center text-cream-100 hover:bg-olive-800 active:bg-olive-700 transition disabled:opacity-25 disabled:cursor-not-allowed disabled:hover:bg-transparent" aria-label="Previous slide">
-          <svg class="w-5 h-5 md:w-7 md:h-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-        </button>
-
-        <!-- Slide image — clean, no overlay -->
-        <div class="flex-1 min-h-0 flex items-center justify-center overflow-hidden">
-          <img id="hg-slide" src="" alt="Slide" class="max-w-full max-h-full object-contain" />
-        </div>
-
-        <!-- Next column -->
-        <button type="button" id="hg-next" onclick="hgNext()" class="shrink-0 w-10 sm:w-12 md:w-16 flex items-center justify-center text-cream-100 hover:bg-olive-800 active:bg-olive-700 transition disabled:opacity-25 disabled:cursor-not-allowed disabled:hover:bg-transparent" aria-label="Next slide">
-          <svg class="w-5 h-5 md:w-7 md:h-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-
-      <!-- Progress dots -->
-      <div class="flex items-center justify-center py-2 border-t border-olive-200 bg-cream-50 shrink-0">
-        <div id="hg-dots" class="flex items-center gap-1.5 justify-center max-w-full"></div>
-      </div>
-    </div>
-  </div>
+  <!-- (legacy honest-guide modal removed 2026-05-03 — new presentation in production) -->
 
   <!-- ====== Lightbox for enlarged signal images ====== -->
   <div id="sig-lightbox" class="sig-lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image">
@@ -1704,103 +1698,7 @@
     })();
   </script>
 
-  <script>
-    (function () {
-      var modal   = document.getElementById('honest-guide-modal');
-      var slide   = document.getElementById('hg-slide');
-      var counter = document.getElementById('hg-counter');
-      var dots    = document.getElementById('hg-dots');
-      var btnPrev = document.getElementById('hg-prev');
-      var btnNext = document.getElementById('hg-next');
-      var TOTAL   = 15;
-      var current = 1;
-
-      function pad(n) { return (n < 10 ? '0' : '') + n; }
-      // Skip slide-01 in the modal — start the experience at slide-02 (shown to user as "1")
-      function slidePath(n) { return 'assets/slides/slide-' + pad(n + 1) + '.jpg'; }
-
-      // Build dots
-      for (var i = 1; i <= TOTAL; i++) {
-        (function (idx) {
-          var b = document.createElement('button');
-          b.type = 'button';
-          b.className = 'w-2 h-2 rounded-full bg-olive-200 hover:bg-olive-400 transition';
-          b.setAttribute('aria-label', 'Go to slide ' + idx);
-          b.addEventListener('click', function () { current = idx; render(); });
-          dots.appendChild(b);
-        })(i);
-      }
-
-      function preload(n) {
-        if (n >= 1 && n <= TOTAL) {
-          var img = new Image();
-          img.src = slidePath(n);
-        }
-      }
-
-      function render() {
-        slide.src = slidePath(current);
-        slide.alt = 'Slide ' + current + ' of ' + TOTAL;
-        counter.textContent = current + ' / ' + TOTAL;
-        btnPrev.disabled = (current === 1);
-        btnNext.disabled = (current === TOTAL);
-        [].forEach.call(dots.children, function (el, i) {
-          var active = (i + 1 === current);
-          el.classList.toggle('bg-olive-600', active);
-          el.classList.toggle('bg-olive-200', !active);
-          el.classList.toggle('w-5', active);
-          el.classList.toggle('w-2', !active);
-        });
-        // Preload neighbors for smoother nav
-        preload(current + 1);
-        preload(current - 1);
-      }
-
-      window.hgNext = function () { if (current < TOTAL) { current++; render(); } };
-      window.hgPrev = function () { if (current > 1)     { current--; render(); } };
-
-      window.openHonestGuide = function () {
-        current = 1;
-        render();
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        document.body.style.overflow = 'hidden';
-      };
-
-      window.closeHonestGuide = function () {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        document.body.style.overflow = '';
-      };
-
-      // Backdrop click closes
-      modal.addEventListener('click', function (e) {
-        if (e.target === modal) window.closeHonestGuide();
-      });
-
-      // Keyboard nav
-      document.addEventListener('keydown', function (e) {
-        if (modal.classList.contains('hidden')) return;
-        if (e.key === 'Escape')          window.closeHonestGuide();
-        else if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); window.hgNext(); }
-        else if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')                     { e.preventDefault(); window.hgPrev(); }
-        else if (e.key === 'Home')       { current = 1;     render(); }
-        else if (e.key === 'End')        { current = TOTAL; render(); }
-      });
-
-      // Touch swipe (mobile)
-      var touchX = null;
-      modal.addEventListener('touchstart', function (e) {
-        if (e.touches.length === 1) touchX = e.touches[0].clientX;
-      }, { passive: true });
-      modal.addEventListener('touchend', function (e) {
-        if (touchX === null) return;
-        var dx = (e.changedTouches[0].clientX) - touchX;
-        if (Math.abs(dx) > 50) { if (dx < 0) window.hgNext(); else window.hgPrev(); }
-        touchX = null;
-      }, { passive: true });
-    })();
-  </script>
+  <!-- (legacy honest-guide modal JS removed 2026-05-03 — new presentation in production) -->
 
 </body>
 </html>
