@@ -66,6 +66,75 @@
         linear-gradient(180deg, #FBF9F4 0%, #F4F1E9 100%);
     }
 
+    /* Fullscreen story modal */
+    body.story-modal-open { overflow: hidden; }
+    .story-modal {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(15, 23, 13, 0.94);
+      display: none;
+      flex-direction: column; align-items: center; justify-content: center;
+      padding: 1rem;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .story-modal.is-open { display: flex; }
+    .story-modal-close {
+      position: absolute; top: 1rem; right: 1rem; z-index: 10;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: white; border: none; cursor: pointer;
+      color: #2A3220;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .story-modal-close:hover { transform: scale(1.08); background: #F4F1E9; }
+    .story-modal-inner {
+      width: 100%; max-width: 1400px; max-height: 100%;
+      display: flex; flex-direction: column; gap: 0.75rem;
+      align-items: stretch;
+    }
+    .story-modal-carousel {
+      display: flex; overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      border-radius: 0.75rem;
+      background: #FBF9F4;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+      scrollbar-width: none; -ms-overflow-style: none;
+      flex: 1; min-height: 0;
+      aspect-ratio: 16/9;
+    }
+    .story-modal-carousel::-webkit-scrollbar { display: none; }
+    .story-modal-carousel .modal-slide {
+      flex: 0 0 100%; scroll-snap-align: center;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .story-modal-controls {
+      display: flex; align-items: center; justify-content: center; gap: 1rem;
+      flex-shrink: 0;
+    }
+    .story-modal-arrow {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(255,255,255,0.18); color: white; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .story-modal-arrow:hover { background: rgba(255,255,255,0.32); transform: scale(1.08); }
+    .story-modal-counter {
+      color: rgba(251, 249, 244, 0.85);
+      font-size: 0.875rem; font-weight: 600;
+      min-width: 90px; text-align: center;
+    }
+
+    /* Mobile swipe banner — pulse animation to draw attention */
+    @keyframes swipeHint {
+      0%, 100% { transform: translateX(0); }
+      25%      { transform: translateX(-4px); }
+      75%      { transform: translateX(4px); }
+    }
+    .swipe-anim { animation: swipeHint 1.6s ease-in-out infinite; }
+
     /* Olive gradient text */
     .text-olive-gradient {
       background: linear-gradient(135deg, #8A9B4D 0%, #6B7B3F 60%, #556330 100%);
@@ -437,7 +506,7 @@
         <a href="#faq" class="hover:text-olive-900 transition">FAQ</a>
       </div>
       <div class="flex items-center gap-2 shrink-0">
-        <a href="#presentation" class="hidden lg:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-olive-700 bg-olive-100 border border-olive-300/70 shadow-sm hover:bg-olive-200 hover:text-olive-900 transition">
+        <a href="#presentation" onclick="openStoryModal(); return false;" class="hidden lg:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-olive-700 bg-olive-100 border border-olive-300/70 shadow-sm hover:bg-olive-200 hover:text-olive-900 transition cursor-pointer">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           <span class="whitespace-nowrap">Watch the Story</span>
         </a>
@@ -453,8 +522,8 @@
       <!-- Top grid: content (left) + signal-preview card (right, narrower) -->
       <div class="grid lg:grid-cols-12 gap-6 md:gap-10 lg:gap-12 items-center">
 
-        <!-- LEFT: content -->
-        <div class="lg:col-span-8 text-center lg:text-left">
+        <!-- LEFT: content (full width since right widget removed 2026-05-09) -->
+        <div class="lg:col-span-12 text-center max-w-4xl mx-auto">
 
           <!-- Eyebrow — catchphrase with WIN BIG dominant, lose small whispered -->
           <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-olive-100 border border-olive-200 mb-5 md:mb-7">
@@ -471,21 +540,21 @@
             <span class="text-olive-gradient italic">Let your money work.</span>
           </h1>
 
-          <p class="text-base md:text-lg text-olive-700 max-w-2xl lg:max-w-xl mx-auto lg:mx-0 leading-relaxed mb-4 md:mb-5">
+          <p class="text-base md:text-lg text-olive-700 max-w-2xl mx-auto leading-relaxed mb-4 md:mb-5">
             A semi-automated swing trading system for the daily chart. Curated stocks, precision signals, and a battle-tested rulebook — inside TradingView. <span class="text-olive-900 font-semibold">15 minutes a day.</span>
           </p>
 
-          <div class="max-w-2xl lg:max-w-xl mx-auto lg:mx-0 mb-5 md:mb-8">
+          <div class="max-w-2xl mx-auto mb-5 md:mb-8">
             <img src="images/banner-beach.jpg" alt="" class="w-full h-auto rounded-xl border border-olive-200 shadow-md" loading="lazy" decoding="async" />
           </div>
 
-          <div class="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3 mb-6 md:mb-8">
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6 md:mb-8">
             <a href="#pricing" class="btn-gold px-7 py-3.5 rounded-full text-base">Get BlueSky Pro →</a>
             <a href="#system" class="btn-secondary px-7 py-3.5 rounded-full text-base">See How It Works</a>
           </div>
 
           <!-- Trust bar (compact) -->
-          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 text-olive-600 text-xs">
+          <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-olive-600 text-xs">
             <div class="flex items-center gap-1.5">
               <svg class="w-3.5 h-3.5 text-olive-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
               7-day money-back
@@ -584,7 +653,7 @@
         </a>
 
         <!-- Path B — Story -->
-        <a href="#presentation" class="group card rounded-2xl p-7 md:p-9 hover:scale-[1.015] hover:shadow-xl transition-all border-l-4 border-gold relative overflow-hidden">
+        <a href="#presentation" onclick="openStoryModal(); return false;" class="group card rounded-2xl p-7 md:p-9 hover:scale-[1.015] hover:shadow-xl transition-all border-l-4 border-gold relative overflow-hidden cursor-pointer">
           <span class="absolute top-3 right-3 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-gold/15 border border-gold/30 text-[10px] font-bold text-gold-dark uppercase tracking-wider">New</span>
           <div class="flex items-center gap-3 mb-4">
             <div class="w-12 h-12 rounded-xl bg-gold/15 border border-gold/30 flex items-center justify-center">
@@ -968,6 +1037,18 @@
           <svg class="w-6 h-6 text-olive-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         </button>
 
+        <!-- Mobile swipe banner — only visible on small screens -->
+        <div class="md:hidden mb-4 mx-2 bg-gradient-to-r from-gold/15 to-olive-100 border border-gold/40 rounded-xl px-4 py-3 flex items-center gap-3 shadow-sm">
+          <div class="shrink-0 w-9 h-9 rounded-full bg-white border border-gold/30 flex items-center justify-center swipe-anim">
+            <svg class="w-5 h-5 text-gold-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7l-5 5 5 5M16 7l5 5-5 5"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm font-bold text-olive-900 leading-tight">📽️ This is an interactive slideshow</p>
+            <p class="text-xs text-olive-700">Swipe left/right to navigate the 16 slides</p>
+          </div>
+        </div>
         <!-- Scroll-snap carousel -->
         <style>#presentation-carousel::-webkit-scrollbar { display: none; }</style>
         <div id="presentation-carousel" class="flex overflow-x-auto snap-x snap-mandatory rounded-2xl border-2 border-olive-300/60 bg-cream-50 scroll-smooth" style="scrollbar-width: none; -ms-overflow-style: none;">
@@ -1677,6 +1758,162 @@
   </script>
 
   <!-- (legacy honest-guide modal JS removed 2026-05-03 — new presentation in production) -->
+
+  <!-- ====== STORY FULLSCREEN MODAL (added 2026-05-09 evening) ====== -->
+  <div id="story-modal" class="story-modal" role="dialog" aria-modal="true" aria-label="The Good, The Bad, and The Ugly presentation" aria-hidden="true">
+    <button onclick="closeStoryModal()" class="story-modal-close" aria-label="Close presentation">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+
+    <div class="story-modal-inner">
+      <div id="modal-presentation-carousel" class="story-modal-carousel">
+          <!-- Slide 0 — INTRO with logo + green arrow (HTML composed) -->
+          <div class="modal-slide flex-shrink-0 w-full snap-center flex flex-col items-center justify-center p-8 md:p-16 text-center bg-gradient-to-br from-cream-50 via-cream-100 to-olive-100/30">
+            <div class="flex items-center gap-3 md:gap-4 mb-6 md:mb-10">
+              <div class="w-14 h-14 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-olive-400 to-olive-600 flex items-center justify-center shadow-lg">
+                <svg class="w-8 h-8 md:w-12 md:h-12 text-cream-50" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8M14 7h7v7"/></svg>
+              </div>
+              <span class="font-display font-bold text-2xl md:text-4xl text-olive-900 tracking-tight">BlueSky <span class="text-gold-gradient">Pro</span></span>
+            </div>
+            <h3 class="font-display font-bold text-2xl md:text-5xl text-olive-900 leading-[1.1] max-w-3xl mb-3">
+              What The System <span class="text-olive-gradient italic">Knows How To Do</span>,
+            </h3>
+            <h3 class="font-display font-bold text-2xl md:text-5xl text-olive-900 leading-[1.1] max-w-3xl mb-8 md:mb-10">
+              and what it <span class="text-red-700 italic">doesn&rsquo;t</span>.
+            </h3>
+            <p class="text-olive-600 text-sm md:text-base font-medium tracking-wide">
+              A 16-slide honest tour &middot; ~3 minutes
+            </p>
+          </div>
+          <!-- Slide 1: What The System Knows How To Do -->
+          <div class="modal-slide flex-shrink-0 w-full snap-center bg-cream-50 flex items-center justify-center">
+            <img src="assets/presentation/slide-01.jpg" alt="Slide 1 — What The System Knows How To Do" class="max-w-full max-h-full w-auto h-auto object-contain" loading="lazy" />
+          </div>
+          <!-- Slide 2: The Customer Filter -->
+          <div class="modal-slide flex-shrink-0 w-full snap-center bg-cream-50 flex items-center justify-center">
+            <img src="assets/presentation/slide-02.jpg" alt="Slide 2 — The Customer Filter" class="max-w-full max-h-full w-auto h-auto object-contain" loading="lazy" />
+          </div>
+          <!-- Slide 3: You Don't Pick. You Just Read. -->
+          <div class="modal-slide flex-shrink-0 w-full snap-center bg-cream-50 flex items-center justify-center">
+            <img src="assets/presentation/slide-03.jpg" alt="Slide 3 — You Don't Pick. You Just Read." class="max-w-full max-h-full w-auto h-auto object-contain" loading="lazy" />
+          </div>
+          <!-- Slide 4: The System's Job vs Your Job -->
+          <div class="modal-slide flex-shrink-0 w-full snap-center bg-cream-50 flex items-center justify-center">
+            <img src="assets/presentation/slide-04.jpg" alt="Slide 4 — The System's Job vs Your Job" class="max-w-full max-h-full w-auto h-auto object-contain" loading="lazy" />
+          </div>
+          <!-- Slide 5: The Three Signal Flavors -->
+          <div class="modal-slide flex-shrink-0 w-full snap-center bg-cream-50 flex items-center justify-center">
+            <img src="assets/presentation/slide-05.jpg" alt="Slide 5 — The Three Signal Flavors" class="max-w-full max-h-full w-auto h-auto object-contain" loading="lazy" />
+          </div>
+          <!-- Slide 6: What You Absolutely Do Not Do -->
+          <div class="modal-slide flex-shrink-0 w-full snap-center bg-cream-50 flex items-center justify-center">
+            <img src="assets/presentation/slide-06.jpg" alt="Slide 6 — What You Absolutely Do Not Do" class="max-w-full max-h-full w-auto h-auto object-contain" loading="lazy" />
+          </div>
+          <!-- Slide 7: The Dry Numbers -->
+          <div class="modal-slide flex-shrink-0 w-full snap-center bg-cream-50 flex items-center justify-center">
+            <img src="assets/presentation/slide-07.jpg" alt="Slide 7 — The Dry Numbers" class="max-w-full max-h-full w-auto h-auto object-contain" loading="lazy" />
+          </div>
+          <!-- Slide 8: Win Rate: 54.7% -->
+          <div class="modal-slide flex-shrink-0 w-full snap-center bg-cream-50 flex items-center justify-center">
+            <img src="assets/presentation/slide-08.jpg" alt="Slide 8 — Win Rate: 54.7%" class="max-w-full max-h-full w-auto h-auto object-contain" loading="lazy" />
+          </div>
+          <!-- Slide 9: The Math of Asymmetry — Losses -->
+          <div class="modal-slide flex-shrink-0 w-full snap-center bg-cream-50 flex items-center justify-center">
+            <img src="assets/presentation/slide-09.jpg" alt="Slide 9 — The Math of Asymmetry — Losses" class="max-w-full max-h-full w-auto h-auto object-contain" loading="lazy" />
+          </div>
+          <!-- Slide 10: The Math of Asymmetry — Wins -->
+          <div class="modal-slide flex-shrink-0 w-full snap-center bg-cream-50 flex items-center justify-center">
+            <img src="assets/presentation/slide-10.jpg" alt="Slide 10 — The Math of Asymmetry — Wins" class="max-w-full max-h-full w-auto h-auto object-contain" loading="lazy" />
+          </div>
+          <!-- Slide 11: Big Wins / Workhorses / Honest Stops -->
+          <div class="modal-slide flex-shrink-0 w-full snap-center bg-cream-50 flex items-center justify-center">
+            <img src="assets/presentation/slide-11.jpg" alt="Slide 11 — Big Wins / Workhorses / Honest Stops" class="max-w-full max-h-full w-auto h-auto object-contain" loading="lazy" />
+          </div>
+          <!-- Slide 12: The Real World Pothole (Spring 2026) -->
+          <div class="modal-slide flex-shrink-0 w-full snap-center bg-cream-50 flex items-center justify-center">
+            <img src="assets/presentation/slide-12.jpg" alt="Slide 12 — The Real World Pothole (Spring 2026)" class="max-w-full max-h-full w-auto h-auto object-contain" loading="lazy" />
+          </div>
+          <!-- Slide 13: The Suspension Held -->
+          <div class="modal-slide flex-shrink-0 w-full snap-center bg-cream-50 flex items-center justify-center">
+            <img src="assets/presentation/slide-13.jpg" alt="Slide 13 — The Suspension Held" class="max-w-full max-h-full w-auto h-auto object-contain" loading="lazy" />
+          </div>
+          <!-- Slide 14: The Bottom Line -->
+          <div class="modal-slide flex-shrink-0 w-full snap-center bg-cream-50 flex items-center justify-center">
+            <img src="assets/presentation/slide-14.jpg" alt="Slide 14 — The Bottom Line" class="max-w-full max-h-full w-auto h-auto object-contain" loading="lazy" />
+          </div>
+          <!-- Slide 15: The Fine Print -->
+          <div class="modal-slide flex-shrink-0 w-full snap-center bg-cream-50 flex items-center justify-center">
+            <img src="assets/presentation/slide-15.jpg" alt="Slide 15 — The Fine Print" class="max-w-full max-h-full w-auto h-auto object-contain" loading="lazy" />
+          </div>
+      </div>
+
+      <div class="story-modal-controls">
+        <button onclick="modalPresentationNav(-1)" aria-label="Previous slide" class="story-modal-arrow">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <p id="modal-slide-counter" class="story-modal-counter">Slide 1 / 16</p>
+        <button onclick="modalPresentationNav(1)" aria-label="Next slide" class="story-modal-arrow">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const modal = document.getElementById('story-modal');
+      const carousel = document.getElementById('modal-presentation-carousel');
+      const counter = document.getElementById('modal-slide-counter');
+      if (!modal || !carousel || !counter) return;
+
+      const slides = carousel.querySelectorAll('.modal-slide');
+      const total = slides.length;
+
+      window.openStoryModal = function() {
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('story-modal-open');
+        // Reset to first slide on each open
+        carousel.scrollLeft = 0;
+        counter.textContent = 'Slide 1 / ' + total;
+      };
+
+      window.closeStoryModal = function() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('story-modal-open');
+      };
+
+      window.modalPresentationNav = function(dir) {
+        const slideWidth = slides[0].offsetWidth;
+        carousel.scrollBy({ left: slideWidth * dir, behavior: 'smooth' });
+      };
+
+      // Update counter as user scrolls within modal
+      let scrollTimer;
+      carousel.addEventListener('scroll', () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+          const slideWidth = slides[0].offsetWidth;
+          const current = Math.round(carousel.scrollLeft / slideWidth) + 1;
+          counter.textContent = 'Slide ' + Math.min(current, total) + ' / ' + total;
+        }, 80);
+      });
+
+      // ESC key closes modal; arrow keys navigate within
+      document.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('is-open')) return;
+        if (e.key === 'Escape')     { e.preventDefault(); window.closeStoryModal(); }
+        if (e.key === 'ArrowLeft')  { e.preventDefault(); window.modalPresentationNav(-1); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); window.modalPresentationNav(1);  }
+      });
+
+      // Click on backdrop (outside .story-modal-inner) closes modal
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) window.closeStoryModal();
+      });
+    })();
+  </script>
 
 </body>
 </html>
