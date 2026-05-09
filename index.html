@@ -606,18 +606,6 @@
       </div>
     </div>
 
-    <!-- Real Chart Screenshot — spectacular winner -->
-    <div class="relative max-w-6xl mx-auto mt-16">
-      <div class="flex items-center justify-center gap-2 mb-4">
-        <span class="w-2 h-2 rounded-full bg-olive-500"></span>
-        <span class="text-xs font-bold tracking-widest text-olive-700 uppercase">Actual Signals · NASDAQ:ALM · Daily Chart</span>
-      </div>
-      <div class="card rounded-2xl p-2 md:p-3 overflow-hidden">
-        <img src="images/wins/alm.png" alt="BlueSky Pro signals on ALM daily chart — 18-month trend with three guided TP closes" class="w-full rounded-xl block" loading="eager" />
-      </div>
-      <p class="text-center text-olive-600 text-sm mt-4 italic max-w-3xl mx-auto">Real BlueSky Pro output on ALM · an 18-month trend with three guided TP closes — the highest at +33% · on a $1,000 position = a typical full winner of $250-$320 · stop trailed up the whole way · no photoshop, no mockup.</p>
-    </div>
-
     <!-- Tagline finale — the emotional close of the hero -->
     <div class="relative max-w-4xl mx-auto mt-12 md:mt-24 text-center">
       <div class="flex items-center justify-center gap-3 mb-6 md:mb-10">
@@ -658,7 +646,7 @@
         <!-- Path 1 — Story (LEFT on desktop, TOP on mobile) -->
         <a href="#presentation" onclick="openStoryModal(); return false;" class="group card rounded-2xl p-7 md:p-9 hover:shadow-2xl transition-all border-2 border-gold/40 bg-gradient-to-br from-cream-50 to-gold/5 relative overflow-hidden cursor-pointer">
           <!-- Stickman shortcut hint — top-right corner inside the card -->
-          <img src="assets/stickman-shortcut.png" alt="Psst... I have a shortcut" class="absolute top-2 right-2 w-[104px] sm:w-[112px] md:w-[136px] lg:w-[168px] pointer-events-none select-none" />
+          <img src="assets/stickman-shortcut.png" alt="Psst... I have a shortcut" class="absolute top-2 right-2 w-[128px] sm:w-[128px] md:w-[136px] lg:w-[168px] pointer-events-none select-none" />
 
           <!-- Centered icon + meta -->
           <div class="flex flex-col items-center text-center mb-5 mt-3">
@@ -1372,7 +1360,7 @@
 
         <!-- Slide counter + mobile hint -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mt-5">
-          <p id="slide-counter" class="text-olive-600 text-sm font-semibold">Slide 1 / 25</p>
+          <p id="slide-counter" class="hidden">Slide 1 / 25</p>
           <span class="hidden sm:inline text-olive-400 text-xs">&middot;</span>
           <p class="md:hidden text-olive-500 text-xs italic">Swipe &larr;&rarr; or tap edges</p>
           <p class="hidden md:inline text-olive-500 text-xs italic">Use &larr;&rarr; arrow keys, or click the side buttons</p>
@@ -2126,7 +2114,7 @@
         <button onclick="modalPresentationNav(-1)" aria-label="Previous slide" class="story-modal-arrow">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
         </button>
-        <p id="modal-slide-counter" class="story-modal-counter">Slide 1 / 25</p>
+        <p id="modal-slide-counter" class="story-modal-counter hidden">Slide 1 / 25</p>
         <button onclick="modalPresentationNav(1)" aria-label="Next slide" class="story-modal-arrow">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         </button>
