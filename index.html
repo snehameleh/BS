@@ -660,47 +660,49 @@
           <!-- Stickman shortcut hint — top-right corner inside the card -->
           <img src="assets/stickman-shortcut.png" alt="Psst... I have a shortcut" class="absolute top-2 right-2 w-16 sm:w-20 md:w-28 lg:w-36 pointer-events-none select-none" />
 
-          <div class="flex items-center gap-4 mb-5">
+          <!-- Centered icon + meta -->
+          <div class="flex flex-col items-center text-center mb-5">
             <!-- Animated play icon with ring pulse -->
-            <div class="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-light to-gold flex items-center justify-center shadow-lg shrink-0">
+            <div class="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-light to-gold flex items-center justify-center shadow-lg mb-3">
               <span class="play-ring-ping"></span>
               <span class="play-ring-ping play-ring-ping-2"></span>
               <svg class="w-8 h-8 text-cream-50 relative z-10 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z"/>
               </svg>
             </div>
-            <div>
-              <p class="text-[11px] font-black tracking-[0.25em] text-gold-dark uppercase">Path 1 · The Story</p>
-              <p class="text-xs text-olive-600 font-semibold mt-0.5">~3 min &middot; interactive deck</p>
-            </div>
+            <p class="text-[11px] font-black tracking-[0.25em] text-gold-dark uppercase">Path 1 · The Story</p>
+            <p class="text-xs text-olive-600 font-semibold mt-0.5">~3 min &middot; interactive deck</p>
           </div>
 
-          <h3 class="font-display font-bold text-2xl md:text-3xl text-olive-900 mb-3 leading-tight">Tell me <span class="text-gold-gradient italic">the story</span>.</h3>
-          <p class="text-olive-700 text-base leading-relaxed mb-6">A 16-slide deck — what the system does, what it doesn't, the wins, the losses, the pothole we hit. The honest version, fast.</p>
+          <h3 class="font-display font-bold text-2xl md:text-3xl text-olive-900 mb-3 leading-tight text-center">Tell me <span class="text-gold-gradient italic">the story</span>.</h3>
+          <p class="text-olive-700 text-base leading-relaxed mb-6 text-center">A 16-slide deck — what the system does, what it doesn't, the wins, the losses, the pothole we hit. The honest version, fast.</p>
 
-          <span class="inline-flex items-center gap-2 text-gold-dark font-bold text-base bg-gold/10 px-4 py-2 rounded-full group-hover:bg-gold group-hover:text-cream-50 transition">
-            ▶ Watch the story <span class="group-hover:translate-x-1 transition">→</span>
-          </span>
+          <div class="flex justify-center">
+            <span class="inline-flex items-center gap-2 text-gold-dark font-bold text-base bg-gold/10 px-4 py-2 rounded-full group-hover:bg-gold group-hover:text-cream-50 transition">
+              ▶ Watch the story <span class="group-hover:translate-x-1 transition">→</span>
+            </span>
+          </div>
         </a>
 
         <!-- Path 2 — Data (RIGHT on desktop, BOTTOM on mobile) -->
         <a href="#system" class="group card rounded-2xl p-7 md:p-9 hover:shadow-2xl transition-all border-2 border-olive-300/60 hover:border-olive-500 relative">
-          <div class="flex items-center gap-4 mb-5">
-            <div class="w-16 h-16 rounded-2xl bg-olive-100 border border-olive-300 flex items-center justify-center shrink-0">
-              <svg class="w-8 h-8 text-olive-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          <!-- Centered icon + meta (matches Story card layout) -->
+          <div class="flex flex-col items-center text-center mb-5">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-olive-300 to-olive-600 flex items-center justify-center shadow-lg mb-3">
+              <svg class="w-8 h-8 text-cream-50" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
             </div>
-            <div>
-              <p class="text-[11px] font-black tracking-[0.25em] text-olive-600 uppercase">Path 2 · The Data</p>
-              <p class="text-xs text-olive-600 font-semibold mt-0.5">~5 min &middot; full page scroll</p>
-            </div>
+            <p class="text-[11px] font-black tracking-[0.25em] text-olive-600 uppercase">Path 2 · The Data</p>
+            <p class="text-xs text-olive-600 font-semibold mt-0.5">~5 min &middot; full page scroll</p>
           </div>
 
-          <h3 class="font-display font-bold text-2xl md:text-3xl text-olive-900 mb-3 leading-tight">Show me <span class="text-olive-gradient italic">the data</span>.</h3>
-          <p class="text-olive-700 text-base leading-relaxed mb-6">Numbers, proof, track record. Stop loss architecture, performance stats, the full deal — scroll through the page like usual.</p>
+          <h3 class="font-display font-bold text-2xl md:text-3xl text-olive-900 mb-3 leading-tight text-center">Show me <span class="text-olive-gradient italic">the data</span>.</h3>
+          <p class="text-olive-700 text-base leading-relaxed mb-6 text-center">Numbers, proof, track record. Stop loss architecture, performance stats, the full deal — scroll through the page like usual.</p>
 
-          <span class="inline-flex items-center gap-2 text-olive-700 font-bold text-base bg-olive-100 px-4 py-2 rounded-full group-hover:bg-olive-600 group-hover:text-cream-50 transition">
-            📊 Scroll the page <span class="group-hover:translate-x-1 transition">→</span>
-          </span>
+          <div class="flex justify-center">
+            <span class="inline-flex items-center gap-2 text-olive-700 font-bold text-base bg-olive-100 px-4 py-2 rounded-full group-hover:bg-olive-600 group-hover:text-cream-50 transition">
+              📊 Scroll the page <span class="group-hover:translate-x-1 transition">→</span>
+            </span>
+          </div>
         </a>
 
       </div>
