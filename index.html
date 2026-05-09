@@ -642,10 +642,7 @@
 
   <!-- ====== TWO PATHS CHOOSER v2 (Story-first, animated, redesigned 2026-05-09) ====== -->
   <section id="paths" class="py-12 md:py-16 px-6 bg-cream-50 border-y border-olive-200/60">
-    <div class="max-w-5xl mx-auto relative">
-
-      <!-- Stickman pointing at "Tell me the story" card — desktop only -->
-      <img src="assets/stickman-shortcut.png" alt="Pss... I have a shortcut" class="hidden md:block absolute -top-2 right-0 lg:right-4 w-40 lg:w-48 pointer-events-none select-none z-10" />
+    <div class="max-w-5xl mx-auto">
 
       <!-- Heading with diverging arrows -->
       <div class="text-center mb-10 md:mb-14">
@@ -660,6 +657,9 @@
 
         <!-- Path 1 — Story (LEFT on desktop, TOP on mobile) -->
         <a href="#presentation" onclick="openStoryModal(); return false;" class="group card rounded-2xl p-7 md:p-9 hover:shadow-2xl transition-all border-2 border-gold/40 bg-gradient-to-br from-cream-50 to-gold/5 relative overflow-hidden cursor-pointer">
+          <!-- Stickman shortcut hint — top-right corner inside the card -->
+          <img src="assets/stickman-shortcut.png" alt="Pss... I have a shortcut" class="absolute top-2 right-2 w-28 sm:w-32 md:w-36 lg:w-40 pointer-events-none select-none" />
+
           <div class="flex items-center gap-4 mb-5">
             <!-- Animated play icon with ring pulse -->
             <div class="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-light to-gold flex items-center justify-center shadow-lg shrink-0">
