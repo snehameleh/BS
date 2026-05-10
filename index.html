@@ -531,41 +531,31 @@
   </nav>
 
   <!-- ====== HERO — split layout: content + signal-preview card ====== -->
-  <section class="hero-bg relative pt-24 pb-12 md:pt-32 md:pb-20 px-6 overflow-hidden">
+  <section class="hero-bg relative pt-20 pb-6 md:pt-24 md:pb-12 px-6 overflow-hidden">
     <div class="relative max-w-7xl mx-auto">
 
       <!-- Top grid: content (left) + signal-preview card (right, narrower) -->
-      <div class="grid lg:grid-cols-12 gap-6 md:gap-10 lg:gap-12 items-center">
+      <div class="grid lg:grid-cols-12 gap-4 md:gap-8 lg:gap-10 items-center">
 
         <!-- LEFT: content (full width since right widget removed 2026-05-09) -->
         <div class="lg:col-span-12 text-center max-w-4xl mx-auto">
 
-          <!-- Eyebrow — catchphrase with WIN BIG dominant, lose small whispered -->
-          <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-olive-100 border border-olive-200 mb-5 md:mb-7">
-            <div class="w-4 h-4 rounded bg-gradient-to-br from-olive-400 to-olive-600 flex items-center justify-center shrink-0">
-              <svg class="w-2.5 h-2.5 text-cream-50" fill="none" stroke="currentColor" stroke-width="2.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8M14 7h7v7"/></svg>
-            </div>
-            <span class="text-olive-700 text-xs md:text-sm font-semibold tracking-wider lowercase">lose small</span>
-            <span class="text-olive-400">·</span>
-            <span class="text-olive-900 text-sm md:text-base font-black tracking-[0.15em] uppercase">Win Big</span>
-          </div>
-
-          <h1 class="font-display font-bold text-4xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight mb-4 md:mb-6 text-olive-900">
+          <h1 class="font-display font-bold text-3xl md:text-5xl lg:text-6xl leading-[1.04] tracking-tight mb-3 md:mb-4 text-olive-900">
             Trade less.<br/>
             <span class="text-olive-gradient italic">Let your money work.</span>
           </h1>
 
-          <p class="text-base md:text-lg text-olive-700 max-w-2xl mx-auto leading-relaxed mb-4 md:mb-5">
+          <p class="text-sm md:text-base text-olive-700 max-w-2xl mx-auto leading-relaxed mb-3 md:mb-4">
             A semi-automated swing trading system for the daily chart. Curated stocks, precision signals, and a battle-tested rulebook — inside TradingView. <span class="text-olive-900 font-semibold">15 minutes a day.</span>
           </p>
 
-          <div class="max-w-2xl mx-auto mb-5 md:mb-8">
-            <img src="images/banner-beach.jpg" alt="" class="w-full h-auto rounded-xl border border-olive-200 shadow-md" loading="lazy" decoding="async" />
+          <div class="max-w-xl mx-auto mb-4 md:mb-5">
+            <img src="images/banner-beach.jpg" alt="" class="w-full h-auto max-h-[26vh] md:max-h-[32vh] object-cover rounded-xl border border-olive-200 shadow-md" loading="lazy" decoding="async" />
           </div>
 
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6 md:mb-8">
-            <a href="#pricing" class="btn-gold px-7 py-3.5 rounded-full text-base">Get BlueSky Pro →</a>
-            <a href="#paths" class="btn-secondary px-7 py-3.5 rounded-full text-base">See How It Works</a>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4 md:mb-5">
+            <a href="#pricing" class="btn-gold px-6 py-3 rounded-full text-sm md:text-base">Get BlueSky Pro →</a>
+            <a href="#paths" class="btn-secondary px-6 py-3 rounded-full text-sm md:text-base">See How It Works</a>
           </div>
 
           <!-- Trust bar (compact) -->
@@ -582,13 +572,17 @@
               <svg class="w-3.5 h-3.5 text-olive-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
               Any broker
             </div>
+            <div class="flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-gold-dark" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path stroke-linecap="round" d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4l1.4-1.4M17 7l1.4-1.4"/></svg>
+              <span class="font-semibold text-olive-700">Not day trading</span>
+            </div>
           </div>
         </div>
 
       </div>
 
       <!-- Proof strip — sits centered below the split -->
-      <div class="flex flex-wrap items-center justify-center gap-x-8 md:gap-x-12 gap-y-4 mt-8 md:mt-14 pt-6 md:pt-10 border-t border-olive-200/60">
+      <div class="flex flex-wrap items-center justify-center gap-x-6 md:gap-x-12 gap-y-3 mt-5 md:mt-8 pt-4 md:pt-6 border-t border-olive-200/60">
         <div class="flex items-baseline gap-2">
           <span class="font-display font-bold text-2xl md:text-3xl text-olive-gradient">+41.78%</span>
           <span class="text-olive-600 text-xs uppercase tracking-wider font-semibold">CAGR</span>
@@ -606,8 +600,11 @@
       </div>
     </div>
 
-    <!-- Tagline finale — the emotional close of the hero -->
-    <div class="relative max-w-4xl mx-auto mt-12 md:mt-24 text-center">
+  </section>
+
+    <!-- ====== TAGLINE FINALE (split out 2026-05-10 so hero fits viewport) ====== -->
+  <section class="py-12 md:py-20 px-6 hero-bg">
+    <div class="relative max-w-4xl mx-auto text-center">
       <div class="flex items-center justify-center gap-3 mb-6 md:mb-10">
         <div class="h-px w-12 bg-olive-300"></div>
         <div class="w-1.5 h-1.5 rounded-full bg-gold"></div>
@@ -629,22 +626,22 @@
   </section>
 
   <!-- ====== TWO PATHS CHOOSER v2 (Story-first, animated, redesigned 2026-05-09) ====== -->
-  <section id="paths" class="py-12 md:py-16 px-6 bg-cream-50 border-y border-olive-200/60">
+  <section id="paths" class="scroll-mt-20 md:scroll-mt-24 py-8 md:py-16 px-6 bg-cream-50 border-y border-olive-200/60">
     <div class="max-w-5xl mx-auto">
 
       <!-- Heading with diverging arrows -->
-      <div class="text-center mb-10 md:mb-14">
-        <p class="text-gold-dark text-sm font-black tracking-[0.3em] uppercase mb-3">⟵ Choose Your Path ⟶</p>
-        <h2 class="font-display font-bold text-3xl md:text-5xl leading-tight text-olive-900 mb-3">
+      <div class="text-center mb-6 md:mb-14">
+        <p class="text-gold-dark text-xs md:text-sm font-black tracking-[0.3em] uppercase mb-2 md:mb-3">⟵ Choose Your Path ⟶</p>
+        <h2 class="font-display font-bold text-2xl md:text-5xl leading-tight text-olive-900 mb-2 md:mb-3">
           Two ways to <span class="text-olive-gradient italic">get to know us</span>.
         </h2>
-        <p class="text-olive-600 text-sm md:text-base">Pick whichever feels right — both end at the same place.</p>
+        <p class="text-olive-600 text-xs md:text-base">Pick whichever feels right — both end at the same place.</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-5 md:gap-7 max-w-4xl mx-auto items-stretch">
 
-        <!-- Path 1 — Story (LEFT on desktop, TOP on mobile) -->
-        <a href="#presentation" onclick="openStoryModal(); return false;" class="group card rounded-2xl p-7 md:p-9 hover:shadow-2xl transition-all border-2 border-gold/40 bg-gradient-to-br from-cream-50 to-gold/5 relative overflow-hidden cursor-pointer">
+        <!-- Path 1 — Story (RIGHT on desktop 2026-05-10, TOP on mobile) -->
+        <a href="#presentation" onclick="openStoryModal(); return false;" class="group card rounded-2xl p-7 md:p-9 hover:shadow-2xl transition-all border-2 border-gold/40 bg-gradient-to-br from-cream-50 to-gold/5 relative overflow-hidden cursor-pointer md:order-2">
           <!-- Stickman shortcut hint — top-right corner inside the card -->
           <img src="assets/stickman-shortcut.png" alt="Psst... I have a shortcut" class="absolute top-2 right-2 w-[128px] sm:w-[128px] md:w-[136px] lg:w-[168px] pointer-events-none select-none" />
 
@@ -672,8 +669,8 @@
           </div>
         </a>
 
-        <!-- Path 2 — Data (RIGHT on desktop, BOTTOM on mobile) -->
-        <a href="#system" class="group card rounded-2xl p-7 md:p-9 hover:shadow-2xl transition-all border-2 border-olive-300/60 hover:border-olive-500 relative">
+        <!-- Path 2 — Data (LEFT on desktop 2026-05-10, BOTTOM on mobile) -->
+        <a href="#system" class="group card rounded-2xl p-7 md:p-9 hover:shadow-2xl transition-all border-2 border-olive-300/60 hover:border-olive-500 relative md:order-1">
           <!-- Centered icon + meta (matches Story card layout) -->
           <div class="flex flex-col items-center text-center mb-5 mt-3">
             <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-olive-300 to-olive-600 flex items-center justify-center shadow-lg mb-3">
@@ -759,7 +756,7 @@
           <p class="text-olive-700 leading-relaxed mb-4 md:mb-5">A complete playbook: trade management, position sizing, daily routines. Every scenario already answered. No guesswork. No emotion.</p>
           <ul class="space-y-2 text-sm text-olive-700">
             <li class="flex gap-2"><span class="text-olive-500 font-bold">→</span> Position sizing &amp; risk framework</li>
-            <li class="flex gap-2"><span class="text-olive-500 font-bold">→</span> Daily routine (15 min open + close)</li>
+            <li class="flex gap-2"><span class="text-olive-500 font-bold">→</span> 15-min daily routine — trades held for weeks, not minutes</li>
             <li class="flex gap-2"><span class="text-olive-500 font-bold">→</span> Full trade lifecycle management</li>
           </ul>
         </div>
@@ -1055,25 +1052,13 @@
       <!-- Carousel container -->
       <div class="relative">
         <!-- Prev/Next buttons (desktop) -->
-        <button onclick="presentationNav(-1)" aria-label="Previous slide" class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 rounded-full bg-white shadow-lg border border-olive-200 items-center justify-center hover:bg-olive-50 hover:scale-110 transition">
-          <svg class="w-6 h-6 text-olive-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        <button onclick="presentationNav(-1)" aria-label="Previous slide" class="flex absolute left-1 md:left-0 top-1/2 -translate-y-1/2 md:-translate-x-4 z-10 w-9 h-9 md:w-12 md:h-12 rounded-full bg-white shadow-lg border border-olive-200 items-center justify-center hover:bg-olive-50 hover:scale-110 transition">
+          <svg class="w-4 h-4 md:w-6 md:h-6 text-olive-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
         </button>
-        <button onclick="presentationNav(1)" aria-label="Next slide" class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 rounded-full bg-white shadow-lg border border-olive-200 items-center justify-center hover:bg-olive-50 hover:scale-110 transition">
-          <svg class="w-6 h-6 text-olive-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        <button onclick="presentationNav(1)" aria-label="Next slide" class="flex absolute right-1 md:right-0 top-1/2 -translate-y-1/2 md:translate-x-4 z-10 w-9 h-9 md:w-12 md:h-12 rounded-full bg-white shadow-lg border border-olive-200 items-center justify-center hover:bg-olive-50 hover:scale-110 transition">
+          <svg class="w-4 h-4 md:w-6 md:h-6 text-olive-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         </button>
 
-        <!-- Mobile swipe banner — only visible on small screens -->
-        <div class="md:hidden mb-4 mx-2 bg-gradient-to-r from-gold/15 to-olive-100 border border-gold/40 rounded-xl px-4 py-3 flex items-center gap-3 shadow-sm">
-          <div class="shrink-0 w-9 h-9 rounded-full bg-white border border-gold/30 flex items-center justify-center swipe-anim">
-            <svg class="w-5 h-5 text-gold-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7l-5 5 5 5M16 7l5 5-5 5"/>
-            </svg>
-          </div>
-          <div class="flex-1">
-            <p class="text-sm font-bold text-olive-900 leading-tight">📽️ This is an interactive slideshow</p>
-            <p class="text-xs text-olive-700">Swipe left/right to navigate the 16 slides</p>
-          </div>
-        </div>
         <!-- Scroll-snap carousel -->
         <style>#presentation-carousel::-webkit-scrollbar { display: none; }</style>
         <div id="presentation-carousel" class="flex overflow-x-auto snap-x snap-mandatory rounded-2xl border-2 border-olive-300/60 bg-cream-50 scroll-smooth" style="scrollbar-width: none; -ms-overflow-style: none;">
@@ -1362,7 +1347,6 @@
         <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mt-5">
           <p id="slide-counter" class="hidden">Slide 1 / 25</p>
           <span class="hidden sm:inline text-olive-400 text-xs">&middot;</span>
-          <p class="md:hidden text-olive-500 text-xs italic">Swipe &larr;&rarr; or tap edges</p>
           <p class="hidden md:inline text-olive-500 text-xs italic">Use &larr;&rarr; arrow keys, or click the side buttons</p>
         </div>
 
@@ -1388,6 +1372,9 @@
         </h2>
         <p class="text-olive-700 text-lg max-w-2xl mx-auto">No cherry-picked highlights. 4 winners, 2 losers, and one chart that shows both — because every honest system has both.</p>
       </div>
+
+      <!-- Desktop gallery (md and up) — full grid -->
+      <div class="hidden md:block">
 
       <!-- The Winners -->
       <div class="mb-12">
@@ -1439,7 +1426,49 @@
         </div>
       </div>
 
-      <p class="text-center text-olive-500 text-sm italic mt-10">Click any chart to enlarge.</p>
+      </div>
+      <!-- /Desktop gallery -->
+
+      <!-- Mobile gallery (below md) — 2 collage tiles, click → modal -->
+      <div class="md:hidden">
+        <div class="grid grid-cols-2 gap-3">
+          <!-- Wins tile -->
+          <button type="button" onclick="openGalleryModal('wins')" class="group relative rounded-xl overflow-hidden border-2 border-gold/40 shadow-lg active:scale-[0.98] transition cursor-pointer text-left">
+            <!-- 2x2 collage of 4 winner thumbnails -->
+            <div class="grid grid-cols-2 grid-rows-2 aspect-square">
+              <img src="assets/gallery/win-01-rgti.jpg" alt="" class="w-full h-full object-cover" loading="lazy" />
+              <img src="assets/gallery/win-02-mu.jpg"   alt="" class="w-full h-full object-cover" loading="lazy" />
+              <img src="assets/gallery/win-03-stx.jpg"  alt="" class="w-full h-full object-cover" loading="lazy" />
+              <img src="assets/gallery/win-04-vsat.jpg" alt="" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <!-- Overlay label -->
+            <div class="absolute inset-0 bg-gradient-to-t from-olive-900/80 via-olive-900/20 to-transparent flex flex-col justify-end p-3">
+              <p class="text-gold-light text-[10px] font-black tracking-[0.2em] uppercase mb-0.5">★ The Winners</p>
+              <p class="text-cream-50 font-display font-bold text-base leading-tight">4 winning charts</p>
+              <p class="text-cream-100/80 text-[11px] mt-0.5">Tap to view →</p>
+            </div>
+          </button>
+
+          <!-- Honest losses + mix tile -->
+          <button type="button" onclick="openGalleryModal('losses')" class="group relative rounded-xl overflow-hidden border-2 border-olive-400/50 shadow-lg active:scale-[0.98] transition cursor-pointer text-left">
+            <!-- 2x2 collage of 3 losses + mix thumbnails (last tile reused as filler-blur) -->
+            <div class="grid grid-cols-2 grid-rows-2 aspect-square">
+              <img src="assets/gallery/loss-01-nke.jpg" alt="" class="w-full h-full object-cover" loading="lazy" />
+              <img src="assets/gallery/loss-02-vst.jpg" alt="" class="w-full h-full object-cover" loading="lazy" />
+              <img src="assets/gallery/mixed-smci.jpg"  alt="" class="w-full h-full object-cover col-span-2" loading="lazy" />
+            </div>
+            <!-- Overlay label -->
+            <div class="absolute inset-0 bg-gradient-to-t from-olive-900/80 via-olive-900/20 to-transparent flex flex-col justify-end p-3">
+              <p class="text-olive-200 text-[10px] font-black tracking-[0.2em] uppercase mb-0.5">⚖️ Honest Mix</p>
+              <p class="text-cream-50 font-display font-bold text-base leading-tight">2 losses + 1 both</p>
+              <p class="text-cream-100/80 text-[11px] mt-0.5">Tap to view →</p>
+            </div>
+          </button>
+        </div>
+        <p class="text-center text-olive-500 text-xs italic mt-4">Tap a tile to swipe through the charts.</p>
+      </div>
+
+      <p class="hidden md:block text-center text-olive-500 text-sm italic mt-10">Click any chart to enlarge.</p>
     </div>
   </section>
 
@@ -2174,6 +2203,120 @@
       // Click on backdrop (outside .story-modal-inner) closes modal
       modal.addEventListener('click', (e) => {
         if (e.target === modal) window.closeStoryModal();
+      });
+    })();
+  </script>
+
+
+  <!-- Mobile gallery modal — swipeable through wins/losses charts (added 2026-05-10) -->
+  <div id="gallery-modal" class="story-modal" role="dialog" aria-modal="true" aria-label="Trade gallery">
+    <button type="button" class="story-modal-close" onclick="closeGalleryModal()" aria-label="Close gallery">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <div class="story-modal-inner">
+      <p id="gallery-modal-title" class="text-center text-cream-50 text-sm font-black tracking-[0.25em] uppercase"></p>
+      <div id="gallery-modal-carousel" class="story-modal-carousel" style="aspect-ratio: auto; height: auto;"></div>
+      <div class="story-modal-controls">
+        <button type="button" class="story-modal-arrow" onclick="galleryModalNav(-1)" aria-label="Previous">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <span id="gallery-modal-counter" class="text-cream-50 text-xs font-semibold"></span>
+        <button type="button" class="story-modal-arrow" onclick="galleryModalNav(1)" aria-label="Next">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    // Gallery modal — mobile swipeable gallery (added 2026-05-10)
+    (function () {
+      var WINS = [
+        { src: 'assets/gallery/win-01-rgti.jpg', alt: 'RGTI · +103% & +75%',  caption: 'RGTI · +103% & +75%' },
+        { src: 'assets/gallery/win-02-mu.jpg',   alt: 'MU · +30% · +29%',     caption: 'MU · +30% & +29%' },
+        { src: 'assets/gallery/win-03-stx.jpg',  alt: 'STX · big rally',      caption: 'STX · big rally' },
+        { src: 'assets/gallery/win-04-vsat.jpg', alt: 'VSAT · multi-trade',   caption: 'VSAT · multi-trade run' }
+      ];
+      var LOSSES = [
+        { src: 'assets/gallery/loss-01-nke.jpg', alt: 'NKE · stopped out',         caption: 'NKE · stopped out' },
+        { src: 'assets/gallery/loss-02-vst.jpg', alt: 'VST · several SL hits',     caption: 'VST · several SL hits' },
+        { src: 'assets/gallery/mixed-smci.jpg',  alt: 'SMCI · the honest mix',     caption: 'SMCI · wins AND a loss' }
+      ];
+
+      var modal    = document.getElementById('gallery-modal');
+      if (!modal) return;
+      var carousel = document.getElementById('gallery-modal-carousel');
+      var title    = document.getElementById('gallery-modal-title');
+      var counter  = document.getElementById('gallery-modal-counter');
+
+      var currentSet = [];
+      var currentIdx = 0;
+
+      function render(setName) {
+        currentSet = setName === 'wins' ? WINS : LOSSES;
+        title.textContent = setName === 'wins' ? '★ The Winners' : '⚖️ The Honest Mix';
+        carousel.innerHTML = '';
+        currentSet.forEach(function (item, i) {
+          var slide = document.createElement('div');
+          slide.className = 'modal-slide';
+          slide.style.flex = '0 0 100%';
+          slide.style.scrollSnapAlign = 'center';
+          slide.style.padding = '0.5rem';
+          slide.innerHTML =
+            '<div style="display:flex; flex-direction:column; align-items:center; gap:0.6rem; width:100%;">' +
+              '<img src="' + item.src + '" alt="' + item.alt + '" style="max-width:100%; max-height:60vh; object-fit:contain; border-radius:0.6rem; box-shadow:0 8px 24px rgba(0,0,0,0.5);" />' +
+              '<p style="color:#FBF9F4; font-weight:700; font-size:0.9rem; text-align:center;">' + item.caption + '</p>' +
+            '</div>';
+          carousel.appendChild(slide);
+        });
+        currentIdx = 0;
+        updateCounter();
+        // Reset scroll
+        setTimeout(function () { carousel.scrollLeft = 0; }, 10);
+      }
+
+      function updateCounter() {
+        counter.textContent = (currentIdx + 1) + ' / ' + currentSet.length;
+      }
+
+      window.openGalleryModal = function (setName) {
+        render(setName);
+        modal.classList.add('is-open');
+        document.body.classList.add('story-modal-open');
+      };
+      window.closeGalleryModal = function () {
+        modal.classList.remove('is-open');
+        document.body.classList.remove('story-modal-open');
+      };
+      window.galleryModalNav = function (dir) {
+        if (!currentSet.length) return;
+        var slideWidth = carousel.offsetWidth;
+        carousel.scrollBy({ left: slideWidth * dir, behavior: 'smooth' });
+      };
+
+      // Track scroll → update counter
+      var scrollTimer;
+      carousel.addEventListener('scroll', function () {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(function () {
+          var slideWidth = carousel.offsetWidth || 1;
+          currentIdx = Math.min(Math.max(Math.round(carousel.scrollLeft / slideWidth), 0), currentSet.length - 1);
+          updateCounter();
+        }, 80);
+      });
+
+      // Click outside to close
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) window.closeGalleryModal();
+      });
+
+      // ESC + arrows when modal is open
+      document.addEventListener('keydown', function (e) {
+        if (!modal.classList.contains('is-open')) return;
+        if (e.key === 'Escape')     { e.preventDefault(); window.closeGalleryModal(); }
+        if (e.key === 'ArrowLeft')  { e.preventDefault(); window.galleryModalNav(-1); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); window.galleryModalNav(1);  }
       });
     })();
   </script>
